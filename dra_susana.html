@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
+  --teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
+  --navy:#0f2a3d;--navy2:#152f45;
+  --cream:#faf8f9;--cream2:#f5f0f3;
+  --ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
+  --fb:#1877f2;--wa:#25d366;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:0.8rem}
+.nav-logo-icon{width:40px;height:40px;flex-shrink:0}
+.nav-brand{display:flex;flex-direction:column}
+.nav-name{font-size:0.92rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-name span{color:var(--pink)}
+.nav-title{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-top:0.1rem}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-links{display:flex;gap:1.6rem;list-style:none;font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase}
+.nav-links a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--pink)}
+.nav-fb{display:flex;align-items:center;gap:0.4rem;background:var(--fb);color:white;text-decoration:none;padding:0.5rem 0.9rem;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:opacity 0.2s}
+.nav-fb:hover{opacity:0.88}
+.nav-fb svg{width:13px;height:13px;fill:white}
+.nav-cta{background:var(--pink);color:white;border:none;padding:0.6rem 1.3rem;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.nav-cta:hover{background:var(--pink-dark)}
+
+/* HERO — fixed: auto height, no min-height */
+.hero{display:grid;grid-template-columns:1fr 1fr;opacity:0;animation:fadeIn 0.9s ease forwards 0.1s}
+@keyframes fadeIn{to{opacity:1}}
+.hero-left{background:var(--cream2);display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 4rem 3rem;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:-60px;left:-60px;width:260px;height:260px;border-radius:50%;background:var(--pink-light);opacity:0.7;pointer-events:none}
+.hero-left::after{content:'';position:absolute;bottom:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:var(--teal-light);opacity:0.8;pointer-events:none}
+.hero-eyebrow{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1.2rem;position:relative;z-index:1}
+.hero-title{font-family:var(--serif);font-size:clamp(2.4rem,3.5vw,3.6rem);line-height:1.08;font-weight:300;letter-spacing:-0.01em;margin-bottom:1.2rem;position:relative;z-index:1}
+.hero-title em{color:var(--pink);font-style:italic}
+.hero-subtitle{font-size:0.88rem;color:var(--muted);line-height:1.8;max-width:360px;margin-bottom:1.8rem;position:relative;z-index:1}
+.hero-actions{display:flex;gap:0.8rem;align-items:center;position:relative;z-index:1;flex-wrap:wrap}
+.btn-primary{background:var(--pink);color:white;border:none;padding:0.8rem 1.6rem;font-family:var(--sans);font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.btn-primary:hover{background:var(--pink-dark)}
+.btn-teal{display:flex;align-items:center;gap:0.4rem;background:var(--teal);color:white;border:none;padding:0.8rem 1.3rem;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s;text-decoration:none}
+.btn-teal:hover{background:var(--teal-dark)}
+.btn-teal svg{width:13px;height:13px;fill:white}
+
+/* HERO RIGHT — no justify space-between, just flex-col gap */
+.hero-right{background:var(--navy);display:flex;flex-direction:column;gap:2rem;padding:3rem;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:var(--teal);opacity:0.05;pointer-events:none}
+.hero-badge{position:relative;z-index:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:1.2rem 1.4rem;border-radius:8px}
+.hero-badge-name{font-size:0.9rem;font-weight:600;color:white;margin-bottom:0.3rem}
+.hero-badge-spec{font-size:0.7rem;color:var(--teal);letter-spacing:0.04em;margin-bottom:0.8rem}
+.hero-badge-cedulas{display:flex;gap:0.6rem;flex-wrap:wrap}
+.cedula-pill{font-size:0.6rem;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);padding:0.22rem 0.6rem;border-radius:100px;letter-spacing:0.04em}
+.hero-quote-wrap{position:relative;z-index:1;padding-top:0.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+.hero-quote{font-family:var(--serif);font-size:1.35rem;font-style:italic;color:white;line-height:1.55;margin-bottom:0.7rem;opacity:0.9}
+.hero-quote-attr{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.38)}
+.hero-stats{display:flex;gap:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);position:relative;z-index:1}
+.stat-num{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--teal);display:block;line-height:1}
+.stat-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:0.25rem;display:block}
+
+/* FB STRIP */
+.fb-strip{background:var(--fb);padding:0.9rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.fb-strip-text{color:white;font-size:0.8rem}
+.fb-strip-text strong{font-weight:500}
+.fb-strip-btn{display:flex;align-items:center;gap:0.4rem;background:white;color:var(--fb);text-decoration:none;padding:0.5rem 1.1rem;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;border-radius:4px;transition:opacity 0.2s}
+.fb-strip-btn:hover{opacity:0.88}
+.fb-strip-btn svg{width:12px;height:12px;fill:var(--fb)}
+
+/* SERVICES */
+.section{padding:4.5rem 3rem}
+.section-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem}
+.section-title{font-family:var(--serif);font-size:2.2rem;font-weight:300;line-height:1.15;margin-bottom:2.2rem}
+.section-title em{font-style:italic;color:var(--pink)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.service-card{background:white;border:1px solid var(--border);padding:1.8rem;border-radius:8px;transition:all 0.22s;cursor:pointer}
+.service-card:hover{border-color:var(--pink);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,122,160,0.1)}
+.service-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.2rem}
+.icon-pink{background:var(--pink-light)} .icon-teal{background:var(--teal-light)}
+.service-name{font-size:0.9rem;font-weight:600;margin-bottom:0.4rem;line-height:1.3;color:var(--ink)}
+.service-desc{font-size:0.78rem;color:var(--muted);line-height:1.7}
+.service-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.55rem;border-radius:100px;margin-top:0.7rem;font-weight:500}
+.tag-pink{background:var(--pink-light);color:var(--pink-dark)} .tag-teal{background:var(--teal-light);color:var(--teal-dark)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}
+.about-visual{display:flex;align-items:center;justify-content:center;padding:3.5rem;position:relative;overflow:hidden;background:var(--navy2)}
+.about-deco{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
+.about-deco2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;border:1px solid rgba(58,181,198,0.18)}
+.about-badge{position:relative;z-index:1;text-align:center;padding:2rem 0}
+.about-circle{width:150px;height:150px;border-radius:50%;border:2px solid var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);margin:0 auto 1.2rem}
+.about-initials{font-family:var(--serif);font-size:2.6rem;font-weight:300;color:var(--pink)}
+.about-name-badge{font-size:0.88rem;font-weight:600;color:white;line-height:1.3;margin-bottom:0.3rem}
+.about-spec-badge{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem}
+.cedulas-grid{display:flex;flex-direction:column;gap:0.25rem}
+.ced-row{font-size:0.6rem;color:rgba(255,255,255,0.32);letter-spacing:0.04em}
+.ced-row strong{color:rgba(255,255,255,0.55);font-weight:500}
+.about-content{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+.about-content .section-label{color:var(--teal)}
+.about-content h2{font-family:var(--serif);font-size:1.9rem;font-weight:300;margin-bottom:1.2rem;line-height:1.2;color:white}
+.about-content h2 em{font-style:italic;color:var(--pink)}
+.about-content p{font-size:0.84rem;color:rgba(255,255,255,0.58);line-height:1.85;margin-bottom:0.8rem}
+.credentials{display:flex;flex-direction:column;gap:0.6rem;margin-top:1.2rem}
+.credential{display:flex;align-items:center;gap:0.7rem;font-size:0.76rem;color:rgba(255,255,255,0.52)}
+.credential::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+/* TIPS */
+.tips{padding:4.5rem 3rem;background:var(--navy)}
+.tips .section-label{color:var(--teal)}
+.tips .section-title{color:white;margin-bottom:0.4rem}
+.tips-subtitle{font-size:0.83rem;color:rgba(255,255,255,0.42);margin-bottom:2.2rem}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.tip-card{background:var(--navy2);border:1px solid rgba(255,255,255,0.07);padding:1.6rem;border-radius:8px;transition:border-color 0.2s}
+.tip-card:hover{border-color:var(--teal)}
+.tip-tag{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.7rem;display:block}
+.tip-title{font-size:0.88rem;font-weight:600;color:white;margin-bottom:0.4rem;line-height:1.35}
+.tip-text{font-size:0.76rem;color:rgba(255,255,255,0.48);line-height:1.7}
+.tips-fb-cta{margin-top:1.8rem;text-align:center}
+.tips-fb-cta a{display:inline-flex;align-items:center;gap:0.5rem;background:var(--fb);color:white;text-decoration:none;padding:0.8rem 1.8rem;font-family:var(--sans);font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:4px;transition:opacity 0.2s}
+.tips-fb-cta a:hover{opacity:0.88}
+.tips-fb-cta svg{width:14px;height:14px;fill:white}
+
+/* APPOINTMENT */
+.appointment{background:white;padding:4.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;border-top:1px solid var(--border)}
+.appt-left h2{font-family:var(--serif);font-size:2.4rem;font-weight:300;line-height:1.1;margin-bottom:0.9rem}
+.appt-left h2 em{font-style:italic;color:var(--pink)}
+.appt-left p{font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.3rem}
+.address-box{background:var(--cream2);border:1px solid var(--border);padding:1.1rem 1.3rem;border-radius:8px;font-size:0.8rem;color:var(--muted);line-height:1.7}
+.address-box strong{color:var(--ink);font-weight:500;display:block;margin-bottom:0.25rem}
+.appt-right{display:flex;flex-direction:column;gap:0.8rem}
+.contact-item{display:flex;align-items:center;gap:0.9rem;padding:1rem 1.3rem;border:1px solid var(--border);border-radius:8px;transition:border-color 0.2s;cursor:pointer;text-decoration:none}
+.contact-item:hover{border-color:var(--pink)}
+.contact-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0}
+.ci-pink{background:var(--pink-light)} .ci-teal{background:var(--teal-light)}
+.ci-fb{background:var(--fb)} .ci-fb svg{width:14px;height:14px;fill:white}
+.ci-mail{background:#f0f4ff}
+.contact-label{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.12rem}
+.contact-value{font-size:0.83rem;color:var(--ink)}
+.whatsapp-btn{background:var(--wa);color:white;border:none;padding:0.95rem 2rem;font-family:var(--sans);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;width:100%;border-radius:4px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:opacity 0.2s;margin-top:0.2rem}
+.whatsapp-btn:hover{opacity:0.88}
+.whatsapp-btn svg{width:15px;height:15px;fill:white}
+
+/* FOOTER */
+footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32)}
+.footer-brand{font-size:0.88rem;font-weight:600;color:white}
+.footer-brand span{color:var(--pink)}
+.footer-center{text-align:center;line-height:1.7}
+.footer-fb{display:flex;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.2s}
+.footer-fb:hover{color:white}
+.footer-fb svg{width:13px;height:13px;fill:currentColor}
+</style>
+
+<svg style="display:none">
+  <symbol id="fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+</svg>
+
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="19" fill="#fdeef4" stroke="#e87aa0" stroke-width="1.5"/>
+      <path d="M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z" fill="#e87aa0" opacity="0.8"/>
+      <circle cx="20" cy="18" r="2.8" fill="white"/>
+      <path d="M18 21 Q20 24 22 21" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-brand">
+      <span class="nav-name">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+      <span class="nav-title">Ginecología · Obstetricia · Medicina Materno Fetal</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Acerca</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <a class="nav-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Facebook
+    </a>
+    <button class="nav-cta">Agendar cita</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey</p>
+    <h1 class="hero-title">Tu salud<br>femenina en<br><em>manos expertas</em></h1>
+    <p class="hero-subtitle">Atención ginecológica integral con calidez humana, tecnología de vanguardia y el respeto que mereces en cada etapa de tu vida.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Agendar mi cita</button>
+      <a class="btn-teal" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+        <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Seguirnos
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-badge">
+      <div class="hero-badge-name">Dra. Susana Rodríguez Coutiño</div>
+      <div class="hero-badge-spec">Ginecología · Obstetricia · Medicina Materno Fetal</div>
+      <div class="hero-badge-cedulas">
+        <span class="cedula-pill">Ced. Prof. 5328701</span>
+        <span class="cedula-pill">Ced. Esp. 8091407</span>
+        <span class="cedula-pill">Ced. Sub. 10980219</span>
+      </div>
+    </div>
+    <div class="hero-quote-wrap">
+      <p class="hero-quote">"Cada mujer merece atención médica con empatía, precisión y confianza."</p>
+      <p class="hero-quote-attr">— Dra. Susana Rodríguez Coutiño</p>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">+15</span><span class="stat-label">Años de exp.</span></div>
+      <div><span class="stat-num">+3k</span><span class="stat-label">Pacientes</span></div>
+      <div><span class="stat-num">8</span><span class="stat-label">Servicios</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="fb-strip">
+  <span class="fb-strip-text">Síguenos · <strong>Ginecología y Obstetricia en Monterrey</strong> — tips de embarazo, salud femenina y más</span>
+  <a class="fb-strip-btn" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+    <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver página
+  </a>
+</div>
+
+<section class="section">
+  <p class="section-label">Especialidades</p>
+  <h2 class="section-title">Servicios que <em>ofrecemos</em></h2>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon icon-pink">🩺</div><h3 class="service-name">Consulta Ginecológica</h3><p class="service-desc">Revisión integral de tu salud reproductiva y hormonal con diagnóstico oportuno.</p><span class="service-tag tag-pink">General</span></div>
+    <div class="service-card"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
+    <div class="service-card"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
+    <div class="service-card"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Colposcopía y Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
+    <div class="service-card"><div class="service-icon icon-pink">📡</div><h3 class="service-name">Ecos de Alta Especialidad</h3><p class="service-desc">Eco anatómico, genético y doppler con tecnología de última generación.</p><span class="service-tag tag-pink">Ultrasonido</span></div>
+    <div class="service-card"><div class="service-icon icon-teal">⚕️</div><h3 class="service-name">Cirugías Ginecológicas</h3><p class="service-desc">Procedimientos mínimamente invasivos con recuperación rápida.</p><span class="service-tag tag-teal">Cirugía</span></div>
+    <div class="service-card"><div class="service-icon icon-pink">💊</div><h3 class="service-name">Control de Natalidad</h3><p class="service-desc">Asesoría personalizada sobre métodos anticonceptivos.</p><span class="service-tag tag-pink">Planificación</span></div>
+    <div class="service-card"><div class="service-icon icon-teal">🌸</div><h3 class="service-name">Medicina Materno Fetal</h3><p class="service-desc">Subespecialidad para embarazos de alto riesgo y diagnóstico prenatal.</p><span class="service-tag tag-teal">Alta esp.</span></div>
+    <div class="service-card" style="background:var(--pink-light);border-color:var(--pink);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem">
+      <p style="font-size:0.8rem;color:var(--pink-dark);line-height:1.7">¿Dudas sobre qué servicio necesitas?</p>
+      <button class="btn-primary" style="font-size:0.68rem;padding:0.55rem 1.1rem">Consultar ahora</button>
+    </div>
+  </div>
+</section>
+
+<div class="about">
+  <div class="about-visual">
+    <div class="about-deco"></div><div class="about-deco2"></div>
+    <div class="about-badge">
+      <div class="about-circle"><span class="about-initials">SR</span></div>
+      <div class="about-name-badge">Dra. Susana Rodríguez Coutiño</div>
+      <div class="about-spec-badge">Ginecología · Obstetricia · Medicina Materno Fetal</div>
+      <div class="cedulas-grid">
+        <div class="ced-row">Ced. Prof. <strong>5328701</strong></div>
+        <div class="ced-row">Ced. Esp. <strong>8091407</strong></div>
+        <div class="ced-row">Ced. Sub. <strong>10980219</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="section-label">Acerca de mí</p>
+    <h2>Experiencia y <em>vocación de servicio</em></h2>
+    <p>Soy ginecóloga, obstetra y especialista en Medicina Materno Fetal con más de 15 años de experiencia brindando atención médica integral a mujeres en todas las etapas de su vida.</p>
+    <p>Mi práctica está basada en evidencia científica, tecnología de vanguardia y, sobre todo, en el trato humano y empático que cada paciente merece.</p>
+    <div class="credentials">
+      <div class="credential">Médico Cirujano y Partero — UDEM</div>
+      <div class="credential">Especialidad en Ginecología y Obstetricia</div>
+      <div class="credential">Subespecialidad en Medicina Materno Fetal</div>
+      <div class="credential">Certificada por el Consejo Mexicano de Ginecología</div>
+      <div class="credential">Ecos de alta especialidad: anatómico, genético y doppler</div>
+    </div>
+  </div>
+</div>
+
+<section class="tips">
+  <p class="section-label">Contenido educativo</p>
+  <h2 class="section-title">Tips de <em>salud femenina</em></h2>
+  <p class="tips-subtitle">Información confiable de tu ginecóloga. Síguenos en Facebook para más contenido.</p>
+  <div class="tips-grid">
+    <div class="tip-card"><span class="tip-tag">Embarazo · Semana a semana</span><h3 class="tip-title">¿Tu panza se pone dura de repente?</h3><p class="tip-text">Las contracciones de Braxton Hicks son normales. Tu útero simplemente está entrenando para el gran día.</p></div>
+    <div class="tip-card"><span class="tip-tag">Prevención</span><h3 class="tip-title">¿Con qué frecuencia debes hacerte el Papanicolaou?</h3><p class="tip-text">La detección temprana salva vidas. Te explicamos cada cuánto tiempo realizarte este estudio esencial.</p></div>
+    <div class="tip-card"><span class="tip-tag">Salud hormonal</span><h3 class="tip-title">Síndrome de ovario poliquístico: señales que no debes ignorar</h3><p class="tip-text">El SOP afecta a 1 de cada 10 mujeres. Conoce los síntomas y cuándo consultar a tu ginecóloga.</p></div>
+  </div>
+  <div class="tips-fb-cta">
+    <a href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver más tips en Facebook
+    </a>
+  </div>
+</section>
+
+<section class="appointment">
+  <div class="appt-left">
+    <h2>Agenda tu cita <em>hoy mismo</em></h2>
+    <p>Atendemos en el Centro Médico de la Mujer Constitución, en Col. Obispado, Monterrey. Consultas de lunes a viernes.</p>
+    <div class="address-box">
+      <strong>📍 Centro Médico de la Mujer Constitución</strong>
+      Hidalgo 1828 Poniente, Consultorio 104, Piso 1<br>Col. Obispado, Monterrey, N.L.
+    </div>
+  </div>
+  <div class="appt-right">
+    <a class="contact-item" href="tel:83472682">
+      <div class="contact-icon ci-pink">📞</div>
+      <div><span class="contact-label">Teléfono consultorio</span><span class="contact-value">8347.2682 · 1941.4415</span></div>
+    </a>
+    <a class="contact-item" href="tel:8121019513">
+      <div class="contact-icon ci-teal">📱</div>
+      <div><span class="contact-label">Celular</span><span class="contact-value">(81) 2101 9513</span></div>
+    </a>
+    <a class="contact-item" href="mailto:susana.rodriguez@udem.edu">
+      <div class="contact-icon ci-mail">✉️</div>
+      <div><span class="contact-label">Correo electrónico</span><span class="contact-value">susana.rodriguez@udem.edu</span></div>
+    </a>
+    <a class="contact-item" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+      <div class="contact-icon ci-fb"><svg viewBox="0 0 24 24"><use href="#fb"/></svg></div>
+      <div><span class="contact-label">Facebook</span><span class="contact-value">Ginecología y Obstetricia en Monterrey</span></div>
+    </a>
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/528121019513','_blank')">
+      <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Agendar por WhatsApp
+    </button>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-brand">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+  <div class="footer-center">
+    Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey, N.L.<br>
+    Ced. Prof. 5328701 · Ced. Esp. 8091407 · Ced. Sub. 10980219 · © 2026
+  </div>
+  <a class="footer-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+    <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Facebook
+  </a>
+</footer>
