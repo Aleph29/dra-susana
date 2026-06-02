@@ -179,6 +179,73 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 [data-delay="800"]{transition-delay:0.8s}
 /* counting numbers */
 .stat-num{transition:none}
+
+/* ── HAMBURGER MENU ── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;top:65px;background:white;z-index:99;padding:2rem;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.1rem;font-weight:500;color:var(--ink);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);letter-spacing:0.06em;text-transform:uppercase}
+.mobile-menu a:hover{color:var(--pink)}
+.mobile-menu .mob-cta{margin-top:1.5rem;background:var(--pink);color:white;border:none;padding:1rem;font-family:var(--sans);font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;width:100%}
+
+/* ── RESPONSIVE — TABLET (max 900px) ── */
+@media(max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .tips-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1fr}
+  .hero-right{padding:2rem}
+  .about{grid-template-columns:1fr}
+  .appointment{grid-template-columns:1fr;gap:2rem}
+}
+
+/* ── RESPONSIVE — MOBILE (max 640px) ── */
+@media(max-width:640px){
+  /* Nav */
+  nav{padding:1rem 1.2rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+
+  /* Hero */
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:2.5rem 1.5rem}
+  .hero-right{padding:1.8rem 1.5rem;gap:1.4rem}
+  .hero-title{font-size:2.2rem}
+  .hero-stats{gap:1.2rem}
+  .stat-num{font-size:1.5rem}
+
+  /* Sections */
+  .section{padding:3rem 1.5rem}
+  .services-grid{grid-template-columns:1fr}
+  .section-title{font-size:1.8rem}
+
+  /* About */
+  .about{grid-template-columns:1fr}
+  .about-visual{padding:2.5rem 1.5rem}
+  .about-content{padding:2rem 1.5rem}
+  .about-circle{width:160px;height:160px}
+
+  /* Tips */
+  .tips{padding:3rem 1.5rem}
+  .tips-grid{grid-template-columns:1fr}
+  .social-cta{flex-direction:column;align-items:stretch}
+  .social-btn{justify-content:center}
+
+  /* Appointment */
+  .appointment{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
+  .appt-left h2{font-size:1.9rem}
+
+  /* Footer */
+  footer{flex-direction:column;align-items:center;text-align:center;padding:1.5rem}
+  .footer-center{font-size:0.65rem}
+
+  /* Scroll offset for mobile nav */
+  #inicio,#servicios,#acerca,#contacto{scroll-margin-top:66px}
+}
 </style>
 
 <svg style="display:none">
@@ -209,8 +276,20 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="nav-cta" onclick="window.open('https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">Agendar cita</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio" onclick="closeMenu()">Inicio</a>
+  <a href="#servicios" onclick="closeMenu()">Servicios</a>
+  <a href="#acerca" onclick="closeMenu()">Acerca</a>
+  <a href="#contacto" onclick="closeMenu()">Contacto</a>
+  <button class="mob-cta" onclick="window.open('https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank');closeMenu()">Agendar cita por WhatsApp</button>
+</div>
 
 <section class="hero" id="inicio">
   <div class="hero-left" data-anim="fade-right">
@@ -384,6 +463,26 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightbox-img" src="" alt="Ultrasonido estructural"/>
 </div>
+
+<script>
+// ── Hamburger Menu ──
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close menu on outside click
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('hamburger');
+  if(menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+});
+</script>
 
 <script>
 // ── Lightbox ──
