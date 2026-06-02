@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/alber/Downloads/index_8.html -->
+<!-- saved from url=(0045)file:///C:/Users/alber/Downloads/index_9.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -150,19 +150,16 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 .service-card.card-ecos{cursor:zoom-in}
 
 /* ── ECOS CARD HOVER IMAGE ── */
-.service-card.card-ecos{position:relative;overflow:hidden !important}
+.service-card.card-ecos{position:relative;overflow:hidden;cursor:zoom-in}
 .card-ecos-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transform:scale(1.06);transition:opacity 0.45s ease, transform 0.45s ease;z-index:1;border-radius:7px;pointer-events:none}
-.card-ecos-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(15,42,61,0.82) 0%, rgba(15,42,61,0.35) 60%, transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px;pointer-events:none}
+.card-ecos-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,61,0.82) 0%,rgba(15,42,61,0.35) 60%,transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px;pointer-events:none}
 .card-ecos-content{position:relative;z-index:3;transition:color 0.3s ease}
-.service-card.card-ecos:hover .card-ecos-img{opacity:1 !important;transform:scale(1)}
+.service-card.card-ecos:hover .card-ecos-img{opacity:1;transform:scale(1)}
 .service-card.card-ecos:hover .card-ecos-overlay{opacity:1}
 .service-card.card-ecos:hover .card-ecos-content .service-name{color:white}
 .service-card.card-ecos:hover .card-ecos-content .service-desc{color:rgba(255,255,255,0.82)}
 .service-card.card-ecos:hover .card-ecos-content .service-tag{background:rgba(255,255,255,0.18);color:white}
 .service-card.card-ecos:hover .card-ecos-content .service-icon{background:rgba(255,255,255,0.15)}
-/* Fix: card-ecos-img must be visible even when parent has opacity:0 from scroll anim */
-.service-card.card-ecos.visible .card-ecos-img{opacity:0}
-.service-card.card-ecos.visible:hover .card-ecos-img{opacity:1 !important}
 [data-anim]{opacity:0;transition:opacity 0.6s ease, transform 0.6s ease}
 [data-anim="fade-up"]{transform:translateY(36px)}
 [data-anim="fade-left"]{transform:translateX(-40px)}
@@ -170,8 +167,6 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 [data-anim="zoom-in"]{transform:scale(0.92)}
 [data-anim="fade"]{transform:none}
 [data-anim].visible{opacity:1;transform:none}
-/* images are never hidden by parent animation */
-[data-anim] img{opacity:1 !important}
 /* stagger delays for grids */
 [data-delay="100"]{transition-delay:0.1s}
 [data-delay="200"]{transition-delay:0.2s}
@@ -207,10 +202,10 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   </div>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="file:///C:/Users/alber/Downloads/index_8.html#inicio">Inicio</a></li>
-      <li><a href="file:///C:/Users/alber/Downloads/index_8.html#servicios">Servicios</a></li>
-      <li><a href="file:///C:/Users/alber/Downloads/index_8.html#acerca">Acerca</a></li>
-      <li><a href="file:///C:/Users/alber/Downloads/index_8.html#contacto">Contacto</a></li>
+      <li><a href="file:///C:/Users/alber/Downloads/index_9.html#inicio">Inicio</a></li>
+      <li><a href="file:///C:/Users/alber/Downloads/index_9.html#servicios">Servicios</a></li>
+      <li><a href="file:///C:/Users/alber/Downloads/index_9.html#acerca">Acerca</a></li>
+      <li><a href="file:///C:/Users/alber/Downloads/index_9.html#contacto">Contacto</a></li>
     </ul>
     <button class="nav-cta" onclick="window.open(&#39;https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta&#39;,&#39;_blank&#39;)">Agendar cita</button>
   </div>
@@ -255,7 +250,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
     <div class="service-card" data-anim="fade-up" data-delay="200"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
     <div class="service-card" data-anim="fade-up" data-delay="300"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
     <div class="service-card" data-anim="fade-up" data-delay="400"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
-    <div class="service-card card-ecos" data-anim="fade-up" data-delay="500">
+    <div class="service-card card-ecos">
       <img class="card-ecos-img" src="file:///C:/Users/alber/Downloads/Ultrasonido%20estructural.jpg" alt="Ultrasonido estructural">
       <div class="card-ecos-overlay"></div>
       <div class="card-ecos-content">
@@ -276,7 +271,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 </section>
 
 <div class="about" id="acerca">
-  <div class="about-visual" data-anim="fade-right">
+  <div class="about-visual">
     <div class="about-deco"></div><div class="about-deco2"></div>
     <div class="about-badge">
       <div class="about-circle"><img src="file:///C:/Users/alber/Downloads/Dra%20Susana.jpg" alt="Dra. Susana Rodríguez Coutiño"></div>
@@ -386,7 +381,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <img id="lightbox-img" src="file:///C:/Users/alber/Downloads/index_8.html" alt="Ultrasonido estructural">
+  <img id="lightbox-img" src="file:///C:/Users/alber/Downloads/index_9.html" alt="Ultrasonido estructural">
 </div>
 
 <script>
