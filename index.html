@@ -139,6 +139,15 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 .f-tt{background:#000}
 .f-wa{background:var(--wa)}
 
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;transform:scale(0.92);transition:transform 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lightbox.open img{transform:scale(1)}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 0.2s;background:none;border:none;font-family:var(--sans)}
+.lightbox-close:hover{opacity:1}
+.service-card.card-ecos{cursor:zoom-in}
+
 /* ── ECOS CARD HOVER IMAGE ── */
 .service-card.card-ecos{position:relative;overflow:hidden}
 .card-ecos-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.06);transition:opacity 0.45s ease, transform 0.45s ease;z-index:1;border-radius:7px}
@@ -241,7 +250,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
     <div class="service-card" data-anim="fade-up" data-delay="300"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
     <div class="service-card" data-anim="fade-up" data-delay="400"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
     <div class="service-card card-ecos" data-anim="fade-up" data-delay="500">
-      <img class="card-ecos-img" src="Ultrasonido_estructural.jpg" alt="Ultrasonido estructural"/>
+      <img class="card-ecos-img" src="Ultrasonido estructural.jpg" alt="Ultrasonido estructural"/>
       <div class="card-ecos-overlay"></div>
       <div class="card-ecos-content">
         <div class="service-icon icon-pink">📡</div>
@@ -264,7 +273,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   <div class="about-visual" data-anim="fade-right">
     <div class="about-deco"></div><div class="about-deco2"></div>
     <div class="about-badge">
-      <div class="about-circle"><img src="Dra_Susana.jpg" alt="Dra. Susana Rodríguez Coutiño"/></div>
+      <div class="about-circle"><img src="Dra Susana.jpg" alt="Dra. Susana Rodríguez Coutiño"/></div>
       <div class="about-name-badge">Dra. Susana Rodríguez Coutiño</div>
       <div class="about-spec-badge">Ginecología · Obstetricia · Medicina Materno Fetal</div>
       <div class="cedulas-grid">
@@ -367,6 +376,29 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
     <a class="f-wa" href="https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24"><use href="#wa"/></svg></a>
   </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Ultrasonido estructural"/>
+</div>
+
+<script>
+// ── Lightbox ──
+function openLightbox() {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = 'Ultrasonido estructural.jpg';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+document.getElementById('lightbox-img').addEventListener('click', e => e.stopPropagation());
+document.querySelector('.card-ecos').addEventListener('click', openLightbox);
+</script>
 
 <script>
 // ── Intersection Observer for scroll animations ──
