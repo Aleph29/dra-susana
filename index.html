@@ -1,21 +1,19 @@
-
 <!DOCTYPE html>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
-  --teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
-  --navy:#0f2a3d;--navy2:#152f45;
-  --cream:#faf8f9;--cream2:#f5f0f3;
-  --ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
-  --fb:#1877f2;--wa:#25d366;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Jost',sans-serif;
+--pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
+--teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
+--navy:#0f2a3d;--navy2:#152f45;
+--cream:#faf8f9;--cream2:#f5f0f3;
+--ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
+--fb:#1877f2;--wa:#25d366;--ig:#e1306c;--tt:#000000;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Jost',sans-serif;
 }
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}
-
-/* NAV — no Facebook button */
+html{scroll-behavior:smooth}
 nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:1rem}
 .nav-logo{display:flex;align-items:center;gap:0.8rem}
 .nav-logo-icon{width:40px;height:40px;flex-shrink:0}
@@ -29,8 +27,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .nav-links a:hover{color:var(--pink)}
 .nav-cta{background:var(--pink);color:white;border:none;padding:0.6rem 1.5rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s}
 .nav-cta:hover{background:var(--pink-dark)}
-
-/* HERO */
 .hero{display:grid;grid-template-columns:1fr 1fr;opacity:0;animation:fadeIn 0.9s ease forwards 0.1s}
 @keyframes fadeIn{to{opacity:1}}
 .hero-left{background:var(--cream2);display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem;position:relative;overflow:hidden}
@@ -56,8 +52,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .hero-stats{display:flex;gap:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);position:relative;z-index:1}
 .stat-num{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--teal);display:block;line-height:1}
 .stat-label{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:0.25rem;display:block}
-
-/* SERVICES */
 .section{padding:4.5rem 3rem}
 .section-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem}
 .section-title{font-family:var(--serif);font-size:2.2rem;font-weight:300;line-height:1.15;margin-bottom:2.2rem}
@@ -71,15 +65,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .service-desc{font-size:0.78rem;color:var(--muted);line-height:1.7}
 .service-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.55rem;border-radius:100px;margin-top:0.7rem;font-weight:500}
 .tag-pink{background:var(--pink-light);color:var(--pink-dark)} .tag-teal{background:var(--teal-light);color:var(--teal-dark)}
-
-/* ABOUT */
 .about{display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}
 .about-visual{display:flex;align-items:center;justify-content:center;padding:3.5rem;position:relative;overflow:hidden;background:var(--navy2)}
 .about-deco{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
 .about-deco2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;border:1px solid rgba(58,181,198,0.18)}
 .about-badge{position:relative;z-index:1;text-align:center;padding:2rem 0}
-.about-circle{width:150px;height:150px;border-radius:50%;border:2px solid var(--pink);display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);margin:0 auto 1.2rem}
-.about-initials{font-family:var(--serif);font-size:2.6rem;font-weight:300;color:var(--pink)}
+.about-circle{width:200px;height:200px;border-radius:50%;border:3px solid var(--pink);overflow:hidden;margin:0 auto 1.2rem;box-shadow:0 0 0 6px rgba(232,122,160,0.15)}
+.about-circle img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-initials{display:none}
 .about-name-badge{font-size:0.88rem;font-weight:600;color:white;line-height:1.3;margin-bottom:0.3rem}
 .about-spec-badge{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.8rem}
 .cedulas-grid{display:flex;flex-direction:column;gap:0.25rem}
@@ -93,8 +86,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .credentials{display:flex;flex-direction:column;gap:0.6rem;margin-top:1.2rem}
 .credential{display:flex;align-items:center;gap:0.7rem;font-size:0.76rem;color:rgba(255,255,255,0.52)}
 .credential::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
-
-/* TIPS — Facebook kept here */
 .tips{padding:4.5rem 3rem;background:var(--navy)}
 .tips .section-label{color:var(--teal)}
 .tips .section-title{color:white;margin-bottom:0.4rem}
@@ -105,12 +96,15 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .tip-tag{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.7rem;display:block}
 .tip-title{font-size:0.88rem;font-weight:600;color:white;margin-bottom:0.4rem;line-height:1.35}
 .tip-text{font-size:0.76rem;color:rgba(255,255,255,0.48);line-height:1.7}
-.tips-fb-cta{margin-top:1.8rem;text-align:center}
-.tips-fb-cta a{display:inline-flex;align-items:center;gap:0.5rem;background:var(--fb);color:white;text-decoration:none;padding:0.8rem 1.8rem;font-family:var(--sans);font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:4px;transition:opacity 0.2s}
-.tips-fb-cta a:hover{opacity:0.88}
-.tips-fb-cta svg{width:14px;height:14px;fill:white}
-
-/* APPOINTMENT */
+/* Social CTA strip */
+.social-cta{margin-top:2rem;display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap}
+.social-btn{display:inline-flex;align-items:center;gap:0.5rem;color:white;text-decoration:none;padding:0.75rem 1.4rem;font-family:var(--sans);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:opacity 0.2s;font-weight:500}
+.social-btn:hover{opacity:0.85}
+.social-btn svg{width:15px;height:15px;fill:white;flex-shrink:0}
+.btn-fb{background:var(--fb)}
+.btn-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.btn-tt{background:#000}
+.btn-wa-s{background:var(--wa)}
 .appointment{background:white;padding:4.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;border-top:1px solid var(--border)}
 .appt-left h2{font-family:var(--serif);font-size:2.4rem;font-weight:300;line-height:1.1;margin-bottom:0.9rem}
 .appt-left h2 em{font-style:italic;color:var(--pink)}
@@ -122,27 +116,65 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .contact-item:hover{border-color:var(--pink)}
 .contact-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0}
 .ci-pink{background:var(--pink-light)} .ci-teal{background:var(--teal-light)}
-.ci-fb{background:var(--fb)} .ci-fb svg{width:14px;height:14px;fill:white}
+.ci-fb{background:var(--fb)} .ci-fb svg,.ci-ig svg,.ci-tt svg,.ci-wa svg{width:14px;height:14px;fill:white}
+.ci-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.ci-tt{background:#000}
+.ci-wa{background:var(--wa)}
 .ci-mail{background:#f0f4ff}
 .contact-label{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.12rem}
 .contact-value{font-size:0.83rem;color:var(--ink)}
 .whatsapp-btn{background:var(--wa);color:white;border:none;padding:0.95rem 2rem;font-family:var(--sans);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;width:100%;border-radius:4px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:opacity 0.2s;margin-top:0.2rem}
 .whatsapp-btn:hover{opacity:0.88}
 .whatsapp-btn svg{width:15px;height:15px;fill:white}
-
-/* FOOTER — Facebook kept here */
-footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32)}
+footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32);flex-wrap:wrap;gap:1rem}
 .footer-brand{font-size:0.88rem;font-weight:600;color:white}
 .footer-brand span{color:var(--pink)}
 .footer-center{text-align:center;line-height:1.7}
-.footer-fb{display:flex;align-items:center;gap:0.4rem;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.2s}
-.footer-fb:hover{color:white}
-.footer-fb svg{width:13px;height:13px;fill:currentColor}
+.footer-social{display:flex;align-items:center;gap:0.9rem}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;transition:opacity 0.2s}
+.footer-social a:hover{opacity:0.75}
+.footer-social svg{width:13px;height:13px;fill:white}
+.f-fb{background:var(--fb)}
+.f-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.f-tt{background:#000}
+.f-wa{background:var(--wa)}
+
+/* ── ECOS CARD HOVER IMAGE ── */
+.service-card.card-ecos{position:relative;overflow:hidden}
+.card-ecos-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.06);transition:opacity 0.45s ease, transform 0.45s ease;z-index:1;border-radius:7px}
+.card-ecos-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(15,42,61,0.82) 0%, rgba(15,42,61,0.35) 60%, transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px}
+.card-ecos-content{position:relative;z-index:3;transition:color 0.3s ease}
+.service-card.card-ecos:hover .card-ecos-img{opacity:1;transform:scale(1)}
+.service-card.card-ecos:hover .card-ecos-overlay{opacity:1}
+.service-card.card-ecos:hover .card-ecos-content .service-name{color:white}
+.service-card.card-ecos:hover .card-ecos-content .service-desc{color:rgba(255,255,255,0.82)}
+.service-card.card-ecos:hover .card-ecos-content .service-tag{background:rgba(255,255,255,0.18);color:white}
+.service-card.card-ecos:hover .card-ecos-content .service-icon{background:rgba(255,255,255,0.15)}
+[data-anim]{opacity:0;transition:opacity 0.6s ease, transform 0.6s ease}
+[data-anim="fade-up"]{transform:translateY(36px)}
+[data-anim="fade-left"]{transform:translateX(-40px)}
+[data-anim="fade-right"]{transform:translateX(40px)}
+[data-anim="zoom-in"]{transform:scale(0.92)}
+[data-anim="fade"]{transform:none}
+[data-anim].visible{opacity:1;transform:none}
+/* stagger delays for grids */
+[data-delay="100"]{transition-delay:0.1s}
+[data-delay="200"]{transition-delay:0.2s}
+[data-delay="300"]{transition-delay:0.3s}
+[data-delay="400"]{transition-delay:0.4s}
+[data-delay="500"]{transition-delay:0.5s}
+[data-delay="600"]{transition-delay:0.6s}
+[data-delay="700"]{transition-delay:0.7s}
+[data-delay="800"]{transition-delay:0.8s}
+/* counting numbers */
+.stat-num{transition:none}
 </style>
 
 <svg style="display:none">
   <symbol id="fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
   <symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+  <symbol id="tt" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
 </svg>
 
 <nav>
@@ -160,25 +192,25 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   </div>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="#">Acerca</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#acerca">Acerca</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <button class="nav-cta">Agendar cita</button>
+    <button class="nav-cta" onclick="window.open('https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">Agendar cita</button>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
+<section class="hero" id="inicio">
+  <div class="hero-left" data-anim="fade-right">
     <p class="hero-eyebrow">Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey</p>
     <h1 class="hero-title">Tu salud<br>femenina en<br><em>manos expertas</em></h1>
     <p class="hero-subtitle">Atención ginecológica integral con calidez humana, tecnología de vanguardia y el respeto que mereces en cada etapa de tu vida.</p>
     <div class="hero-actions">
-      <button class="btn-primary">Agendar mi cita</button>
+      <button class="btn-primary" onclick="window.open('https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">Agendar mi cita</button>
     </div>
   </div>
-  <div class="hero-right">
+  <div class="hero-right" data-anim="fade-left">
     <div class="hero-badge">
       <div class="hero-badge-name">Dra. Susana Rodríguez Coutiño</div>
       <div class="hero-badge-spec">Ginecología · Obstetricia · Medicina Materno Fetal</div>
@@ -193,37 +225,46 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <p class="hero-quote-attr">— Dra. Susana Rodríguez Coutiño</p>
     </div>
     <div class="hero-stats">
-      <div><span class="stat-num">+15</span><span class="stat-label">Años de exp.</span></div>
-      <div><span class="stat-num">+3k</span><span class="stat-label">Pacientes</span></div>
-      <div><span class="stat-num">8</span><span class="stat-label">Servicios</span></div>
+      <div><span class="stat-num" data-count="15">0</span><span class="stat-label">Años de exp.</span></div>
+      <div><span class="stat-num" data-count="3000">0</span><span class="stat-label">Pacientes</span></div>
+      <div><span class="stat-num" data-count="8">0</span><span class="stat-label">Servicios</span></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="servicios">
   <p class="section-label">Especialidades</p>
   <h2 class="section-title">Servicios que <em>ofrecemos</em></h2>
   <div class="services-grid">
-    <div class="service-card"><div class="service-icon icon-pink">🩺</div><h3 class="service-name">Consulta Ginecológica</h3><p class="service-desc">Revisión integral de tu salud reproductiva y hormonal con diagnóstico oportuno.</p><span class="service-tag tag-pink">General</span></div>
-    <div class="service-card"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
-    <div class="service-card"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
-    <div class="service-card"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Colposcopía y Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
-    <div class="service-card"><div class="service-icon icon-pink">📡</div><h3 class="service-name">Ecos de Alta Especialidad</h3><p class="service-desc">Eco anatómico, genético y doppler con tecnología de última generación.</p><span class="service-tag tag-pink">Ultrasonido</span></div>
-    <div class="service-card"><div class="service-icon icon-teal">⚕️</div><h3 class="service-name">Cirugías Ginecológicas</h3><p class="service-desc">Procedimientos mínimamente invasivos con recuperación rápida.</p><span class="service-tag tag-teal">Cirugía</span></div>
-    <div class="service-card"><div class="service-icon icon-pink">💊</div><h3 class="service-name">Control de Natalidad</h3><p class="service-desc">Asesoría personalizada sobre métodos anticonceptivos.</p><span class="service-tag tag-pink">Planificación</span></div>
-    <div class="service-card"><div class="service-icon icon-teal">🌸</div><h3 class="service-name">Medicina Materno Fetal</h3><p class="service-desc">Subespecialidad para embarazos de alto riesgo y diagnóstico prenatal.</p><span class="service-tag tag-teal">Alta esp.</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="100"><div class="service-icon icon-pink">🩺</div><h3 class="service-name">Consulta Ginecológica</h3><p class="service-desc">Revisión integral de tu salud reproductiva y hormonal con diagnóstico oportuno.</p><span class="service-tag tag-pink">General</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="200"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="300"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="400"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
+    <div class="service-card card-ecos" data-anim="fade-up" data-delay="500">
+      <img class="card-ecos-img" src="Ultrasonido_estructural.jpg" alt="Ultrasonido estructural"/>
+      <div class="card-ecos-overlay"></div>
+      <div class="card-ecos-content">
+        <div class="service-icon icon-pink">📡</div>
+        <h3 class="service-name">Ecos de Alta Especialidad</h3>
+        <p class="service-desc">Eco anatómico, genético y doppler con tecnología de última generación.</p>
+        <span class="service-tag tag-pink">Ultrasonido</span>
+      </div>
+    </div>
+    <div class="service-card" data-anim="fade-up" data-delay="600"><div class="service-icon icon-teal">⚕️</div><h3 class="service-name">Cirugías Ginecológicas</h3><p class="service-desc">Procedimientos mínimamente invasivos con recuperación rápida.</p><span class="service-tag tag-teal">Cirugía</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="700"><div class="service-icon icon-pink">💊</div><h3 class="service-name">Control de Natalidad</h3><p class="service-desc">Asesoría personalizada sobre métodos anticonceptivos.</p><span class="service-tag tag-pink">Planificación</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="800"><div class="service-icon icon-teal">🌸</div><h3 class="service-name">Medicina Materno Fetal</h3><p class="service-desc">Subespecialidad para embarazos de alto riesgo y diagnóstico prenatal.</p><span class="service-tag tag-teal">Alta esp.</span></div>
     <div class="service-card" style="background:var(--pink-light);border-color:var(--pink);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem">
       <p style="font-size:0.8rem;color:var(--pink-dark);line-height:1.7">¿Dudas sobre qué servicio necesitas?</p>
-      <button class="btn-primary" style="font-size:0.68rem;padding:0.55rem 1.1rem">Consultar ahora</button>
+      <button class="btn-primary" style="font-size:0.68rem;padding:0.55rem 1.1rem" onclick="window.open('https://wa.me/528121019513?text=Hola,%20tengo%20una%20duda%20sobre%20los%20servicios','_blank')">Consultar ahora</button>
     </div>
   </div>
 </section>
 
-<div class="about">
-  <div class="about-visual">
+<div class="about" id="acerca">
+  <div class="about-visual" data-anim="fade-right">
     <div class="about-deco"></div><div class="about-deco2"></div>
     <div class="about-badge">
-      <div class="about-circle"><span class="about-initials">SR</span></div>
+      <div class="about-circle"><img src="Dra_Susana.jpg" alt="Dra. Susana Rodríguez Coutiño"/></div>
       <div class="about-name-badge">Dra. Susana Rodríguez Coutiño</div>
       <div class="about-spec-badge">Ginecología · Obstetricia · Medicina Materno Fetal</div>
       <div class="cedulas-grid">
@@ -233,7 +274,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       </div>
     </div>
   </div>
-  <div class="about-content">
+  <div class="about-content" data-anim="fade-left">
     <p class="section-label">Acerca de mí</p>
     <h2>Experiencia y <em>vocación de servicio</em></h2>
     <p>Soy ginecóloga, obstetra y especialista en Medicina Materno Fetal con más de 15 años de experiencia brindando atención médica integral a mujeres en todas las etapas de su vida.</p>
@@ -251,21 +292,30 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 <section class="tips">
   <p class="section-label">Contenido educativo</p>
   <h2 class="section-title">Tips de <em>salud femenina</em></h2>
-  <p class="tips-subtitle">Información confiable de tu ginecóloga. Síguenos en Facebook para más contenido.</p>
+  <p class="tips-subtitle">Información confiable de tu ginecóloga. Síguenos en redes para más contenido.</p>
   <div class="tips-grid">
-    <div class="tip-card"><span class="tip-tag">Embarazo · Semana a semana</span><h3 class="tip-title">¿Tu panza se pone dura de repente?</h3><p class="tip-text">Las contracciones de Braxton Hicks son normales. Tu útero simplemente está entrenando para el gran día.</p></div>
-    <div class="tip-card"><span class="tip-tag">Prevención</span><h3 class="tip-title">¿Con qué frecuencia debes hacerte el Papanicolaou?</h3><p class="tip-text">La detección temprana salva vidas. Te explicamos cada cuánto tiempo realizarte este estudio esencial.</p></div>
-    <div class="tip-card"><span class="tip-tag">Salud hormonal</span><h3 class="tip-title">Síndrome de ovario poliquístico: señales que no debes ignorar</h3><p class="tip-text">El SOP afecta a 1 de cada 10 mujeres. Conoce los síntomas y cuándo consultar a tu ginecóloga.</p></div>
+    <div class="tip-card" data-anim="zoom-in" data-delay="100"><span class="tip-tag">Embarazo · Semana a semana</span><h3 class="tip-title">¿Tu panza se pone dura de repente?</h3><p class="tip-text">Las contracciones de Braxton Hicks son normales. Tu útero simplemente está entrenando para el gran día.</p></div>
+    <div class="tip-card" data-anim="zoom-in" data-delay="300"><span class="tip-tag">Prevención</span><h3 class="tip-title">¿Con qué frecuencia debes hacerte el Papanicolaou?</h3><p class="tip-text">La detección temprana salva vidas. Te explicamos cada cuánto tiempo realizarte este estudio esencial.</p></div>
+    <div class="tip-card" data-anim="zoom-in" data-delay="500"><span class="tip-tag">Salud hormonal</span><h3 class="tip-title">Síndrome de ovario poliquístico: señales que no debes ignorar</h3><p class="tip-text">El SOP afecta a 1 de cada 10 mujeres. Conoce los síntomas y cuándo consultar a tu ginecóloga.</p></div>
   </div>
-  <div class="tips-fb-cta">
-    <a href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
-      <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver más tips en Facebook
+  <div class="social-cta">
+    <a class="social-btn btn-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Facebook
+    </a>
+    <a class="social-btn btn-ig" href="https://www.instagram.com/obstetrichealth" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#ig"/></svg> Instagram
+    </a>
+    <a class="social-btn btn-tt" href="https://www.tiktok.com/@obstetric_health" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#tt"/></svg> TikTok
+    </a>
+    <a class="social-btn btn-wa-s" href="https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank">
+      <svg viewBox="0 0 24 24"><use href="#wa"/></svg> WhatsApp
     </a>
   </div>
 </section>
 
-<section class="appointment">
-  <div class="appt-left">
+<section class="appointment" id="contacto">
+  <div class="appt-left" data-anim="fade-right">
     <h2>Agenda tu cita <em>hoy mismo</em></h2>
     <p>Atendemos en el Centro Médico de la Mujer Constitución, en Col. Obispado, Monterrey. Consultas de lunes a viernes.</p>
     <div class="address-box">
@@ -273,7 +323,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       Hidalgo 1828 Poniente, Consultorio 104, Piso 1<br>Col. Obispado, Monterrey, N.L.
     </div>
   </div>
-  <div class="appt-right">
+  <div class="appt-right" data-anim="fade-left">
     <a class="contact-item" href="tel:83472682">
       <div class="contact-icon ci-pink">📞</div>
       <div><span class="contact-label">Teléfono consultorio</span><span class="contact-value">8347.2682 · 1941.4415</span></div>
@@ -290,7 +340,15 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <div class="contact-icon ci-fb"><svg viewBox="0 0 24 24"><use href="#fb"/></svg></div>
       <div><span class="contact-label">Facebook</span><span class="contact-value">Ginecología y Obstetricia en Monterrey</span></div>
     </a>
-    <button class="whatsapp-btn" onclick="window.open('https://wa.me/528121019513','_blank')">
+    <a class="contact-item" href="https://www.instagram.com/obstetrichealth" target="_blank">
+      <div class="contact-icon ci-ig"><svg viewBox="0 0 24 24"><use href="#ig"/></svg></div>
+      <div><span class="contact-label">Instagram</span><span class="contact-value">@obstetrichealth</span></div>
+    </a>
+    <a class="contact-item" href="https://www.tiktok.com/@obstetric_health" target="_blank">
+      <div class="contact-icon ci-tt"><svg viewBox="0 0 24 24"><use href="#tt"/></svg></div>
+      <div><span class="contact-label">TikTok</span><span class="contact-value">@obstetric_health</span></div>
+    </a>
+    <button class="whatsapp-btn" onclick="window.open('https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">
       <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Agendar por WhatsApp
     </button>
   </div>
@@ -302,7 +360,62 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
     Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey, N.L.<br>
     Ced. Prof. 5328701 · Ced. Esp. 8091407 · Ced. Sub. 10980219 · © 2026
   </div>
-  <a class="footer-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
-    <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Facebook
-  </a>
+  <div class="footer-social">
+    <a class="f-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24"><use href="#fb"/></svg></a>
+    <a class="f-ig" href="https://www.instagram.com/obstetrichealth" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><use href="#ig"/></svg></a>
+    <a class="f-tt" href="https://www.tiktok.com/@obstetric_health" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><use href="#tt"/></svg></a>
+    <a class="f-wa" href="https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24"><use href="#wa"/></svg></a>
+  </div>
 </footer>
+
+<script>
+// ── Intersection Observer for scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target); // animate once only
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+
+// ── Counting numbers animation ──
+function animateCount(el, target, duration = 1800) {
+  const isThousand = target >= 1000;
+  let start = null;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    // ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    if (isThousand) {
+      el.textContent = '+' + (current >= 1000 ? Math.floor(current/1000) + 'k' : current);
+    } else {
+      el.textContent = '+' + current;
+    }
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = isThousand ? '+3k' : '+' + target;
+  };
+  requestAnimationFrame(step);
+}
+
+// Trigger counters when stats come into view
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        if (target === 8) { el.textContent = '8'; return; }
+        animateCount(el, target);
+      });
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) statsObserver.observe(statsEl);
+</script>
