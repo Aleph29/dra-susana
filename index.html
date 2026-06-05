@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%23fdeef4'/><path d='M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z' fill='%23e87aa0' opacity='0.9'/><circle cx='20' cy='18' r='2.8' fill='white'/><path d='M18 21 Q20 24 22 21' stroke='white' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
@@ -142,26 +144,42 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 .f-tt{background:#000}
 .f-wa{background:var(--wa)}
 
-/* ── LIGHTBOX ── */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+/* ── LIGHTBOX CAROUSEL ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
 .lightbox.open{opacity:1;pointer-events:all}
-.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;transform:scale(0.92);transition:transform 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.lightbox-img-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:88vw;max-height:82vh;object-fit:contain;border-radius:8px;transform:scale(0.92);transition:transform 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.5);display:block}
 .lightbox.open img{transform:scale(1)}
-.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 0.2s;background:none;border:none;font-family:var(--sans)}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 0.2s;background:none;border:none;font-family:var(--sans);z-index:2}
 .lightbox-close:hover{opacity:1}
-.service-card.card-ecos{cursor:zoom-in}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.13);color:white;border:none;font-size:1.8rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;line-height:1}
+.lightbox-nav:hover{background:rgba(255,255,255,0.28)}
+.lightbox-prev{left:1rem}
+.lightbox-next{right:1rem}
+.lightbox-dots{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:2}
+.lightbox-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.28);cursor:pointer;border:none;padding:0;transition:background 0.2s;flex-shrink:0}
+.lightbox-dot.active{background:white}
+.lightbox-counter{position:absolute;bottom:0.5rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.45);font-size:0.68rem;letter-spacing:0.1em;z-index:2;white-space:nowrap}
 
-/* ── ECOS CARD HOVER IMAGE ── */
-.service-card.card-ecos{position:relative;overflow:hidden;cursor:zoom-in}
-.card-ecos-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transform:scale(1.06);transition:opacity 0.45s ease, transform 0.45s ease;z-index:1;border-radius:7px;pointer-events:none}
-.card-ecos-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,61,0.82) 0%,rgba(15,42,61,0.35) 60%,transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px;pointer-events:none}
-.card-ecos-content{position:relative;z-index:3;transition:color 0.3s ease}
-.service-card.card-ecos:hover .card-ecos-img{opacity:1;transform:scale(1)}
-.service-card.card-ecos:hover .card-ecos-overlay{opacity:1}
-.service-card.card-ecos:hover .card-ecos-content .service-name{color:white}
-.service-card.card-ecos:hover .card-ecos-content .service-desc{color:rgba(255,255,255,0.82)}
-.service-card.card-ecos:hover .card-ecos-content .service-tag{background:rgba(255,255,255,0.18);color:white}
-.service-card.card-ecos:hover .card-ecos-content .service-icon{background:rgba(255,255,255,0.15)}
+/* ── SERVICE CARD CAROUSEL ── */
+.card-carousel{position:relative;overflow:hidden;cursor:pointer;min-height:180px}
+.carousel-slides{position:absolute;inset:0;z-index:1;border-radius:7px;overflow:hidden;pointer-events:none}
+.carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.9s ease}
+.carousel-slide.active{opacity:1}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.carousel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,61,0.82) 0%,rgba(15,42,61,0.35) 60%,transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px;pointer-events:none}
+.card-carousel:hover .carousel-overlay{opacity:1}
+.carousel-content{position:relative;z-index:3;transition:color 0.3s ease}
+.card-carousel:hover .carousel-content .service-name{color:white}
+.card-carousel:hover .carousel-content .service-desc{color:rgba(255,255,255,0.82)}
+.card-carousel:hover .carousel-content .service-tag{background:rgba(255,255,255,0.18);color:white}
+.card-carousel:hover .carousel-content .service-icon{background:rgba(255,255,255,0.15)}
+.carousel-dots{position:absolute;bottom:0.7rem;left:0;right:0;display:flex;justify-content:center;gap:5px;z-index:4;opacity:0;transition:opacity 0.3s ease}
+.card-carousel:hover .carousel-dots{opacity:1}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;border:none;padding:0;transition:background 0.2s;flex-shrink:0}
+.carousel-dot.active{background:white}
+.carousel-badge{position:absolute;top:0.65rem;right:0.65rem;z-index:4;background:rgba(0,0,0,0.48);color:white;font-size:0.54rem;letter-spacing:0.08em;padding:0.18rem 0.5rem;border-radius:100px;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+.card-carousel:hover .carousel-badge{opacity:1}
 [data-anim]{opacity:0;transition:opacity 0.6s ease, transform 0.6s ease}
 [data-anim="fade-up"]{transform:translateY(36px)}
 [data-anim="fade-left"]{transform:translateX(-40px)}
@@ -329,12 +347,40 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   <div class="services-grid">
     <div class="service-card" data-anim="fade-up" data-delay="100"><div class="service-icon icon-pink">🩺</div><h3 class="service-name">Consulta Ginecológica</h3><p class="service-desc">Revisión integral de tu salud reproductiva y hormonal con diagnóstico oportuno.</p><span class="service-tag tag-pink">General</span></div>
     <div class="service-card" data-anim="fade-up" data-delay="200"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
-    <div class="service-card" data-anim="fade-up" data-delay="300"><div class="service-icon icon-pink">👶</div><h3 class="service-name">Atención de Parto y Cesárea</h3><p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p><span class="service-tag tag-pink">Parto</span></div>
+    <div class="service-card card-carousel" id="card-parto" data-anim="fade-up" data-delay="300">
+      <div class="carousel-slides">
+        <div class="carousel-slide active"><img src="pictures/parto1.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto2.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto3.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto4.jpeg" alt="Atención de Parto"/></div>
+      </div>
+      <div class="carousel-overlay"></div>
+      <span class="carousel-badge">4 fotos · clic para ver</span>
+      <div class="carousel-dots" id="dots-parto"></div>
+      <div class="carousel-content">
+        <div class="service-icon icon-pink">👶</div>
+        <h3 class="service-name">Atención de Parto y Cesárea</h3>
+        <p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p>
+        <span class="service-tag tag-pink">Parto</span>
+      </div>
+    </div>
     <div class="service-card" data-anim="fade-up" data-delay="400"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
-    <div class="service-card card-ecos">
-      <img class="card-ecos-img" src="Ultrasonido estructural.jpg" alt="Ultrasonido estructural"/>
-      <div class="card-ecos-overlay"></div>
-      <div class="card-ecos-content">
+    <div class="service-card card-carousel" id="card-ecos" data-anim="fade-up" data-delay="500">
+      <div class="carousel-slides">
+        <div class="carousel-slide active"><img src="pictures/Eco Anatomico1.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico2.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico3.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico4.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico5.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico1.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico2.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico3.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico4.jpeg" alt="Eco Genético"/></div>
+      </div>
+      <div class="carousel-overlay"></div>
+      <span class="carousel-badge">9 fotos · clic para ver</span>
+      <div class="carousel-dots" id="dots-ecos"></div>
+      <div class="carousel-content">
         <div class="service-icon icon-pink">📡</div>
         <h3 class="service-name">Ecos de Alta Especialidad</h3>
         <p class="service-desc">Eco anatómico, genético y doppler con tecnología de última generación.</p>
@@ -459,10 +505,16 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<!-- LIGHTBOX CAROUSEL -->
+<div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <img id="lightbox-img" src="" alt="Ultrasonido estructural"/>
+  <button class="lightbox-nav lightbox-prev" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt=""/>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+  <div class="lightbox-dots" id="lightbox-dots"></div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 <script>
@@ -486,20 +538,124 @@ document.addEventListener('click', e => {
 </script>
 
 <script>
-// ── Lightbox ──
-function openLightbox() {
-  const lb = document.getElementById('lightbox');
-  document.getElementById('lightbox-img').src = 'Ultrasonido estructural.jpg';
-  lb.classList.add('open');
+// ── SERVICE CARD CAROUSELS ──
+const carouselState = {};
+
+function initCarousel(cardId, dotsId, images) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  const dotsWrap = document.getElementById(dotsId);
+  const slides = card.querySelectorAll('.carousel-slide');
+  let current = 0;
+  let autoInterval = null;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+    dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+  }
+
+  function startAuto() {
+    if (autoInterval) return;
+    autoInterval = setInterval(() => goTo(current + 1), 2600);
+  }
+  function stopAuto() { clearInterval(autoInterval); autoInterval = null; }
+
+  card.addEventListener('mouseenter', startAuto);
+  card.addEventListener('mouseleave', stopAuto);
+
+  // Store refs for lightbox
+  carouselState[cardId] = { images, getCurrent: () => current };
+
+  // Click → open lightbox
+  card.addEventListener('click', () => openLightbox(images, current));
+}
+
+// ── LIGHTBOX CAROUSEL ──
+let lbImages = [];
+let lbCurrent = 0;
+
+function openLightbox(images, startIdx) {
+  lbImages = images;
+  lbCurrent = startIdx || 0;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
+function renderLightbox() {
+  document.getElementById('lightbox-img').src = lbImages[lbCurrent];
+  document.getElementById('lightbox-counter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+  // Hide nav buttons if only 1 image
+  const showNav = lbImages.length > 1;
+  document.getElementById('lb-prev').style.display = showNav ? '' : 'none';
+  document.getElementById('lb-next').style.display = showNav ? '' : 'none';
+  // Rebuild dots
+  const dotsWrap = document.getElementById('lightbox-dots');
+  dotsWrap.innerHTML = '';
+  lbImages.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'lightbox-dot' + (i === lbCurrent ? ' active' : '');
+    dot.addEventListener('click', e => { e.stopPropagation(); lbCurrent = i; renderLightbox(); });
+    dotsWrap.appendChild(dot);
+  });
+}
+
+function lbNav(dir) {
+  lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+  renderLightbox();
+}
+
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
+// Close on backdrop click
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+// Stop propagation on image
 document.getElementById('lightbox-img').addEventListener('click', e => e.stopPropagation());
-document.querySelector('.card-ecos').addEventListener('click', openLightbox);
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
+
+// ── Init both carousels ──
+initCarousel('card-ecos', 'dots-ecos', [
+  'pictures/Eco Anatomico1.jpeg',
+  'pictures/Eco Anatomico2.jpeg',
+  'pictures/Eco Anatomico3.jpeg',
+  'pictures/Eco Anatomico4.jpeg',
+  'pictures/Eco Anatomico5.jpeg',
+  'pictures/Eco Genetico1.jpeg',
+  'pictures/Eco Genetico2.jpeg',
+  'pictures/Eco Genetico3.jpeg',
+  'pictures/Eco Genetico4.jpeg'
+]);
+
+initCarousel('card-parto', 'dots-parto', [
+  'pictures/parto1.jpeg',
+  'pictures/parto2.jpeg',
+  'pictures/parto3.jpeg',
+  'pictures/parto4.jpeg'
+]);
 </script>
 
 <script>
