@@ -95,12 +95,22 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3
 .tips .section-label{color:var(--teal)}
 .tips .section-title{color:white;margin-bottom:0.4rem}
 .tips-subtitle{font-size:0.83rem;color:rgba(255,255,255,0.42);margin-bottom:2.2rem}
-.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.tip-card{background:var(--navy2);border:1px solid rgba(255,255,255,0.07);padding:1.6rem;border-radius:8px;transition:border-color 0.2s}
-.tip-card:hover{border-color:var(--teal)}
+.tips-carousel-wrap{position:relative;display:flex;align-items:center;gap:0.6rem}
+.tips-track-outer{overflow:hidden;flex:1;min-width:0}
+.tips-track{display:flex;gap:1rem;transition:transform 0.42s cubic-bezier(0.4,0,0.2,1)}
+.tip-card{flex-shrink:0;background:var(--navy2);border:1px solid rgba(255,255,255,0.07);padding:1.6rem;border-radius:8px;transition:border-color 0.2s,transform 0.2s;text-decoration:none;display:block;color:inherit}
+.tip-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .tip-tag{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.7rem;display:block}
 .tip-title{font-size:0.88rem;font-weight:600;color:white;margin-bottom:0.4rem;line-height:1.35}
 .tip-text{font-size:0.76rem;color:rgba(255,255,255,0.48);line-height:1.7}
+.tip-card-footer{display:flex;align-items:center;gap:0.4rem;margin-top:0.9rem;font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em}
+.tip-card-footer svg{width:12px;height:12px;fill:var(--fb);flex-shrink:0}
+.tips-nav{background:rgba(255,255,255,0.08);color:white;border:1px solid rgba(255,255,255,0.12);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.6rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;line-height:1;padding:0}
+.tips-nav:hover{background:rgba(255,255,255,0.2)}
+.tips-nav:disabled{opacity:0.22;cursor:default}
+.tips-dots{display:flex;justify-content:center;gap:7px;margin-top:1.4rem}
+.tips-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.22);border:none;cursor:pointer;padding:0;transition:background 0.2s;flex-shrink:0}
+.tips-dot.active{background:white}
 /* Social CTA strip */
 .social-cta{margin-top:2rem;display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap}
 .social-btn{display:inline-flex;align-items:center;gap:0.5rem;color:white;text-decoration:none;padding:0.75rem 1.4rem;font-family:var(--sans);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:opacity 0.2s;font-weight:500}
@@ -215,7 +225,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 /* ── RESPONSIVE — TABLET (max 900px) ── */
 @media(max-width:900px){
   .services-grid{grid-template-columns:repeat(2,1fr)}
-  .tips-grid{grid-template-columns:repeat(2,1fr)}
+  .tips-nav{width:32px;height:32px;font-size:1.3rem}
   .hero{grid-template-columns:1fr}
   .hero-right{padding:2rem}
   .about{grid-template-columns:1fr}
@@ -251,7 +261,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
 
   /* Tips */
   .tips{padding:3rem 1.5rem}
-  .tips-grid{grid-template-columns:1fr}
+  .tips-carousel-wrap{gap:0.3rem}
   .social-cta{flex-direction:column;align-items:stretch}
   .social-btn{justify-content:center}
 
@@ -445,9 +455,6 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
     </a>
     <a class="social-btn btn-tt" href="https://www.tiktok.com/@obstetric_health" target="_blank">
       <svg viewBox="0 0 24 24"><use href="#tt"/></svg> TikTok
-    </a>
-    <a class="social-btn btn-wa-s" href="https://wa.me/528121019513?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank">
-      <svg viewBox="0 0 24 24"><use href="#wa"/></svg> WhatsApp
     </a>
   </div>
 </section>
