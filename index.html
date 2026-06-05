@@ -441,11 +441,69 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   <p class="section-label">Contenido educativo</p>
   <h2 class="section-title">Tips de <em>salud femenina</em></h2>
   <p class="tips-subtitle">Información confiable de tu ginecóloga. Síguenos en redes para más contenido.</p>
-  <div class="tips-grid">
-    <div class="tip-card" data-anim="zoom-in" data-delay="100"><span class="tip-tag">Embarazo · Semana a semana</span><h3 class="tip-title">¿Tu panza se pone dura de repente?</h3><p class="tip-text">Las contracciones de Braxton Hicks son normales. Tu útero simplemente está entrenando para el gran día.</p></div>
-    <div class="tip-card" data-anim="zoom-in" data-delay="300"><span class="tip-tag">Prevención</span><h3 class="tip-title">¿Con qué frecuencia debes hacerte el Papanicolaou?</h3><p class="tip-text">La detección temprana salva vidas. Te explicamos cada cuánto tiempo realizarte este estudio esencial.</p></div>
-    <div class="tip-card" data-anim="zoom-in" data-delay="500"><span class="tip-tag">Salud hormonal</span><h3 class="tip-title">Síndrome de ovario poliquístico: señales que no debes ignorar</h3><p class="tip-text">El SOP afecta a 1 de cada 10 mujeres. Conoce los síntomas y cuándo consultar a tu ginecóloga.</p></div>
+  <div class="tips-carousel-wrap">
+    <button class="tips-nav" id="tips-prev" aria-label="Anterior">&#8249;</button>
+    <div class="tips-track-outer">
+      <div class="tips-track" id="tips-track">
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Embarazo · Semana a semana</span>
+          <h3 class="tip-title">¿Tu panza se pone dura de repente?</h3>
+          <p class="tip-text">Las contracciones de Braxton Hicks son normales. Tu útero simplemente está entrenando para el gran día.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Prevención</span>
+          <h3 class="tip-title">¿Con qué frecuencia debes hacerte el Papanicolaou?</h3>
+          <p class="tip-text">La detección temprana salva vidas. Te explicamos cada cuánto tiempo realizarte este estudio esencial.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Salud hormonal</span>
+          <h3 class="tip-title">Síndrome de ovario poliquístico: señales que no debes ignorar</h3>
+          <p class="tip-text">El SOP afecta a 1 de cada 10 mujeres. Conoce los síntomas y cuándo consultar a tu ginecóloga.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Embarazo · Alertas</span>
+          <h3 class="tip-title">Signos de alarma en el embarazo que no debes ignorar</h3>
+          <p class="tip-text">Sangrado, dolor intenso, fiebre o ausencia de movimientos fetales son señales que requieren atención médica inmediata.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Embarazo · Nutrición</span>
+          <h3 class="tip-title">Ácido fólico: cuándo y por qué tomarlo</h3>
+          <p class="tip-text">Idealmente desde antes de embarazarte. Reduce hasta un 70% el riesgo de defectos del tubo neural en tu bebé.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Prevención</span>
+          <h3 class="tip-title">¿Cada cuánto debes visitar a tu ginecóloga?</h3>
+          <p class="tip-text">Una revisión anual es clave incluso si te sientes bien. Muchas condiciones no dan síntomas hasta etapas avanzadas.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Salud femenina</span>
+          <h3 class="tip-title">Endometriosis: la enfermedad que tarda años en diagnosticarse</h3>
+          <p class="tip-text">Cólicos muy intensos, dolor pélvico crónico y dificultad para embarazarte pueden ser señales de endometriosis. No lo normalices.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Embarazo · Control prenatal</span>
+          <h3 class="tip-title">¿Cuándo debes iniciar tu control prenatal?</h3>
+          <p class="tip-text">Lo antes posible, idealmente en las primeras 8 semanas. Un inicio temprano marca la diferencia en la salud de mamá y bebé.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+        <a class="tip-card" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" rel="noopener">
+          <span class="tip-tag">Planificación familiar</span>
+          <h3 class="tip-title">Métodos anticonceptivos: ¿cuál es el mejor para ti?</h3>
+          <p class="tip-text">No existe uno universal. La edad, estilo de vida, historial médico y tus planes a futuro determinan la mejor opción. Consúltanos.</p>
+          <div class="tip-card-footer"><svg viewBox="0 0 24 24"><use href="#fb"/></svg> Ver en Facebook</div>
+        </a>
+      </div>
+    </div>
+    <button class="tips-nav" id="tips-next" aria-label="Siguiente">&#8250;</button>
   </div>
+  <div class="tips-dots" id="tips-dots"></div>
   <div class="social-cta">
     <a class="social-btn btn-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank">
       <svg viewBox="0 0 24 24"><use href="#fb"/></svg> Facebook
@@ -652,6 +710,73 @@ initCarousel('card-parto', 'dots-parto', [
   'pictures/parto3.jpeg',
   'pictures/parto4.jpeg'
 ]);
+</script>
+
+<script>
+// ── TIPS CAROUSEL ──
+(function() {
+  const track    = document.getElementById('tips-track');
+  const dotsWrap = document.getElementById('tips-dots');
+  const btnPrev  = document.getElementById('tips-prev');
+  const btnNext  = document.getElementById('tips-next');
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.tip-card'));
+  const TOTAL  = cards.length;
+  let current  = 0;
+
+  function getVisible() {
+    if (window.innerWidth >= 900) return 3;
+    if (window.innerWidth >= 640) return 2;
+    return 1;
+  }
+
+  function getPages() { return Math.ceil(TOTAL / getVisible()); }
+
+  function setWidths() {
+    const vis = getVisible();
+    const gap = 16;
+    const outerW = track.parentElement.offsetWidth;
+    const cardW  = (outerW - gap * (vis - 1)) / vis;
+    cards.forEach(c => { c.style.width = cardW + 'px'; });
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < getPages(); i++) {
+      const dot = document.createElement('button');
+      dot.className = 'tips-dot' + (i === current ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function goTo(page) {
+    const pages = getPages();
+    current = Math.max(0, Math.min(page, pages - 1));
+    const vis    = getVisible();
+    const gap    = 16;
+    const cardW  = cards[0].offsetWidth;
+    const offset = current * vis * (cardW + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+    Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current >= pages - 1;
+  }
+
+  btnPrev.addEventListener('click', () => goTo(current - 1));
+  btnNext.addEventListener('click', () => goTo(current + 1));
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { current = 0; setWidths(); buildDots(); goTo(0); }, 120);
+  });
+
+  setWidths();
+  buildDots();
+  goTo(0);
+})();
 </script>
 
 <script>
