@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Dra. Susana Rodríguez Coutiño</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%23fdeef4'/><path d='M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z' fill='%23e87aa0' opacity='0.9'/><circle cx='20' cy='18' r='2.8' fill='white'/><path d='M18 21 Q20 24 22 21' stroke='white' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
+--teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
+--navy:#0f2a3d;--navy2:#152f45;
+--cream:#faf8f9;--cream2:#f5f0f3;
+--ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
+--fb:#1877f2;--wa:#25d366;--ig:#e1306c;--tt:#000000;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Jost',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:0.8rem}
+.nav-logo a{display:flex;align-items:center;gap:0.8rem;text-decoration:none}
+.nav-logo-icon{width:40px;height:40px;flex-shrink:0}
+.nav-brand{display:flex;flex-direction:column}
+.nav-name{font-size:0.92rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-name span{color:var(--pink)}
+.nav-title{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-top:0.1rem}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;gap:1.8rem;list-style:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+.nav-links a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--pink)}
+.nav-cta{background:var(--pink);color:white;border:none;padding:0.6rem 1.5rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.nav-cta:hover{background:var(--pink-dark)}
+.section{padding:4.5rem 3rem}
+.section-label{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem}
+.section-title{font-family:var(--serif);font-size:2.2rem;font-weight:300;line-height:1.15;margin-bottom:2.2rem}
+.section-title em{font-style:italic;color:var(--pink)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.service-card{background:white;border:1px solid var(--border);padding:1.8rem;border-radius:8px;transition:all 0.22s;cursor:pointer}
+.service-card:hover{border-color:var(--pink);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,122,160,0.1)}
+.service-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.2rem}
+.icon-pink{background:var(--pink-light)} .icon-teal{background:var(--teal-light)}
+.service-name{font-size:0.9rem;font-weight:600;margin-bottom:0.4rem;line-height:1.3;color:var(--ink)}
+.service-desc{font-size:0.78rem;color:var(--muted);line-height:1.7}
+.service-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.55rem;border-radius:100px;margin-top:0.7rem;font-weight:500}
+.tag-pink{background:var(--pink-light);color:var(--pink-dark)} .tag-teal{background:var(--teal-light);color:var(--teal-dark)}
+.btn-primary{background:var(--pink);color:white;border:none;padding:0.8rem 1.6rem;font-family:var(--sans);font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s}
+.btn-primary:hover{background:var(--pink-dark)}
+/* Card Carousel */
+.card-carousel{position:relative;overflow:hidden;cursor:pointer;min-height:180px}
+.carousel-slides{position:absolute;inset:0;z-index:1;border-radius:7px;overflow:hidden;pointer-events:none;opacity:0;transition:opacity 0.45s ease}
+.card-carousel:hover .carousel-slides{opacity:1}
+.carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.9s ease}
+.carousel-slide.active{opacity:1}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.carousel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,42,61,0.82) 0%,rgba(15,42,61,0.35) 60%,transparent 100%);opacity:0;transition:opacity 0.45s ease;z-index:2;border-radius:7px;pointer-events:none}
+.card-carousel:hover .carousel-overlay{opacity:1}
+.carousel-content{position:relative;z-index:3;transition:color 0.3s ease}
+.card-carousel:hover .carousel-content .service-name{color:white}
+.card-carousel:hover .carousel-content .service-desc{color:rgba(255,255,255,0.82)}
+.card-carousel:hover .carousel-content .service-tag{background:rgba(255,255,255,0.18);color:white}
+.card-carousel:hover .carousel-content .service-icon{background:rgba(255,255,255,0.15)}
+.carousel-dots{position:absolute;bottom:0.7rem;left:0;right:0;display:flex;justify-content:center;gap:5px;z-index:4;opacity:0;transition:opacity 0.3s ease}
+.card-carousel:hover .carousel-dots{opacity:1}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;border:none;padding:0;transition:background 0.2s;flex-shrink:0}
+.carousel-dot.active{background:white}
+.carousel-badge{position:absolute;top:0.65rem;right:0.65rem;z-index:4;background:rgba(0,0,0,0.48);color:white;font-size:0.54rem;letter-spacing:0.08em;padding:0.18rem 0.5rem;border-radius:100px;opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+.card-carousel:hover .carousel-badge{opacity:1}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-img-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.lightbox img{max-width:88vw;max-height:82vh;object-fit:contain;border-radius:8px;transform:scale(0.92);transition:transform 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.5);display:block}
+.lightbox.open img{transform:scale(1)}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;color:white;font-size:2rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 0.2s;background:none;border:none;font-family:var(--sans);z-index:2}
+.lightbox-close:hover{opacity:1}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.13);color:white;border:none;font-size:1.8rem;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;line-height:1}
+.lightbox-nav:hover{background:rgba(255,255,255,0.28)}
+.lightbox-prev{left:1rem}
+.lightbox-next{right:1rem}
+.lightbox-dots{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:2}
+.lightbox-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.28);cursor:pointer;border:none;padding:0;transition:background 0.2s;flex-shrink:0}
+.lightbox-dot.active{background:white}
+.lightbox-counter{position:absolute;bottom:0.5rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.45);font-size:0.68rem;letter-spacing:0.1em;z-index:2;white-space:nowrap}
+footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32);flex-wrap:wrap;gap:1rem}
+.footer-brand{font-size:0.88rem;font-weight:600;color:white}
+.footer-brand span{color:var(--pink)}
+.footer-center{text-align:center;line-height:1.7}
+.footer-social{display:flex;align-items:center;gap:0.9rem}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;transition:opacity 0.2s}
+.footer-social a:hover{opacity:0.75}
+.footer-social svg{width:13px;height:13px;fill:white}
+.f-fb{background:var(--fb)}
+.f-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.f-tt{background:#000}
+.f-wa{background:var(--wa)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;top:65px;background:white;z-index:99;padding:2rem;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.1rem;font-weight:500;color:var(--ink);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);letter-spacing:0.06em;text-transform:uppercase}
+.mobile-menu a:hover{color:var(--pink)}
+.mobile-menu .mob-cta{margin-top:1.5rem;background:var(--pink);color:white;border:none;padding:1rem;font-family:var(--sans);font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;width:100%}
+[data-anim]{opacity:0;transition:opacity 0.6s ease, transform 0.6s ease}
+[data-anim="fade-up"]{transform:translateY(36px)}
+[data-anim].visible{opacity:1;transform:none}
+[data-delay="100"]{transition-delay:0.1s}
+[data-delay="200"]{transition-delay:0.2s}
+[data-delay="300"]{transition-delay:0.3s}
+[data-delay="400"]{transition-delay:0.4s}
+[data-delay="500"]{transition-delay:0.5s}
+[data-delay="600"]{transition-delay:0.6s}
+[data-delay="700"]{transition-delay:0.7s}
+[data-delay="800"]{transition-delay:0.8s}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+  nav{padding:1rem 1.2rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .section{padding:3rem 1.5rem}
+  .services-grid{grid-template-columns:1fr}
+  .section-title{font-size:1.8rem}
+  footer{flex-direction:column;align-items:center;text-align:center;padding:1.5rem}
+  .footer-center{font-size:0.65rem}
+}
+</style>
+
+<svg style="display:none">
+  <symbol id="fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></symbol>
+  <symbol id="tt" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+</svg>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" fill="#fdeef4" stroke="#e87aa0" stroke-width="1.5"/>
+        <path d="M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z" fill="#e87aa0" opacity="0.8"/>
+        <circle cx="20" cy="18" r="2.8" fill="white"/>
+        <path d="M18 21 Q20 24 22 21" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-brand">
+        <span class="nav-name">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+        <span class="nav-title">Ginecología · Obstetricia · Medicina Materno Fetal</span>
+      </div>
+    </a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html" class="active">Servicios</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.open('https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">Agendar cita</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Inicio</a>
+  <a href="servicios.html" onclick="closeMenu()">Servicios</a>
+  <a href="acerca.html" onclick="closeMenu()">Acerca</a>
+  <a href="contacto.html" onclick="closeMenu()">Contacto</a>
+  <button class="mob-cta" onclick="window.open('https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank');closeMenu()">Agendar cita por WhatsApp</button>
+</div>
+
+<section class="section">
+  <p class="section-label">Especialidades</p>
+  <h2 class="section-title">Servicios que <em>ofrecemos</em></h2>
+  <div class="services-grid">
+    <div class="service-card" data-anim="fade-up" data-delay="100"><div class="service-icon icon-pink">🩺</div><h3 class="service-name">Consulta Ginecológica</h3><p class="service-desc">Revisión integral de tu salud reproductiva y hormonal con diagnóstico oportuno.</p><span class="service-tag tag-pink">General</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="200"><div class="service-icon icon-teal">🤰</div><h3 class="service-name">Control Prenatal</h3><p class="service-desc">Acompañamiento completo durante todo tu embarazo desde el primer trimestre.</p><span class="service-tag tag-teal">Embarazo</span></div>
+    <div class="service-card card-carousel" id="card-parto" data-anim="fade-up" data-delay="300">
+      <div class="carousel-slides">
+        <div class="carousel-slide active"><img src="pictures/parto1.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto2.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto3.jpeg" alt="Atención de Parto"/></div>
+        <div class="carousel-slide"><img src="pictures/parto4.jpeg" alt="Atención de Parto"/></div>
+      </div>
+      <div class="carousel-overlay"></div>
+      <span class="carousel-badge">4 fotos · clic para ver</span>
+      <div class="carousel-dots" id="dots-parto"></div>
+      <div class="carousel-content">
+        <div class="service-icon icon-pink">👶</div>
+        <h3 class="service-name">Atención de Parto y Cesárea</h3>
+        <p class="service-desc">Atención profesional y cálida. Parto natural o cesárea programada.</p>
+        <span class="service-tag tag-pink">Parto</span>
+      </div>
+    </div>
+    <div class="service-card" data-anim="fade-up" data-delay="400"><div class="service-icon icon-teal">🔬</div><h3 class="service-name">Papanicolaou</h3><p class="service-desc">Detección temprana de alteraciones cervicales. Prevención esencial.</p><span class="service-tag tag-teal">Prevención</span></div>
+    <div class="service-card card-carousel" id="card-ecos" data-anim="fade-up" data-delay="500">
+      <div class="carousel-slides">
+        <div class="carousel-slide active"><img src="pictures/Eco Anatomico1.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico2.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico3.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico4.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Anatomico5.jpeg" alt="Eco Anatómico"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico1.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico2.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico3.jpeg" alt="Eco Genético"/></div>
+        <div class="carousel-slide"><img src="pictures/Eco Genetico4.jpeg" alt="Eco Genético"/></div>
+      </div>
+      <div class="carousel-overlay"></div>
+      <span class="carousel-badge">9 fotos · clic para ver</span>
+      <div class="carousel-dots" id="dots-ecos"></div>
+      <div class="carousel-content">
+        <div class="service-icon icon-pink">📡</div>
+        <h3 class="service-name">Ecos de Alta Especialidad</h3>
+        <p class="service-desc">Eco anatómico, genético y doppler con tecnología de última generación.</p>
+        <span class="service-tag tag-pink">Ultrasonido</span>
+      </div>
+    </div>
+    <div class="service-card" data-anim="fade-up" data-delay="600"><div class="service-icon icon-teal">⚕️</div><h3 class="service-name">Cirugías Ginecológicas</h3><p class="service-desc">Procedimientos mínimamente invasivos con recuperación rápida.</p><span class="service-tag tag-teal">Cirugía</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="700"><div class="service-icon icon-pink">💊</div><h3 class="service-name">Control de Natalidad</h3><p class="service-desc">Asesoría personalizada sobre métodos anticonceptivos.</p><span class="service-tag tag-pink">Planificación</span></div>
+    <div class="service-card" data-anim="fade-up" data-delay="800"><div class="service-icon icon-teal">🌸</div><h3 class="service-name">Medicina Materno Fetal</h3><p class="service-desc">Subespecialidad para embarazos de alto riesgo y diagnóstico prenatal.</p><span class="service-tag tag-teal">Alta esp.</span></div>
+    <div class="service-card" style="background:var(--pink-light);border-color:var(--pink);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem">
+      <p style="font-size:0.8rem;color:var(--pink-dark);line-height:1.7">¿Dudas sobre qué servicio necesitas?</p>
+      <button class="btn-primary" style="font-size:0.68rem;padding:0.55rem 1.1rem" onclick="window.open('https://wa.me/528120133115?text=Hola,%20tengo%20una%20duda%20sobre%20los%20servicios','_blank')">Consultar ahora</button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt=""/>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+  <div class="lightbox-dots" id="lightbox-dots"></div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<footer>
+  <span class="footer-brand">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+  <div class="footer-center">
+    Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey, N.L.<br>
+    Ced. Prof. 5328701 · Ced. Esp. 8091407 · Ced. Sub. 10980219 · © 2026
+  </div>
+  <div class="footer-social">
+    <a class="f-fb" href="https://www.facebook.com/ginecologiayobstetriciaenmonterrey/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24"><use href="#fb"/></svg></a>
+    <a class="f-ig" href="https://www.instagram.com/obstetrichealth" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><use href="#ig"/></svg></a>
+    <a class="f-tt" href="https://www.tiktok.com/@obstetric_health" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><use href="#tt"/></svg></a>
+    <a class="f-wa" href="https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24"><use href="#wa"/></svg></a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('hamburger');
+  if(menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+});
+</script>
+
+<script>
+const carouselState = {};
+function initCarousel(cardId, dotsId, images) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  const dotsWrap = document.getElementById(dotsId);
+  const slides = card.querySelectorAll('.carousel-slide');
+  let current = 0;
+  let autoInterval = null;
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+    dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+  }
+  function startAuto() { if (autoInterval) return; autoInterval = setInterval(() => goTo(current + 1), 2600); }
+  function stopAuto() { clearInterval(autoInterval); autoInterval = null; }
+  card.addEventListener('mouseenter', startAuto);
+  card.addEventListener('mouseleave', stopAuto);
+  carouselState[cardId] = { images, getCurrent: () => current };
+  card.addEventListener('click', () => openLightbox(images, current));
+}
+
+let lbImages = [], lbCurrent = 0;
+function openLightbox(images, startIdx) {
+  lbImages = images; lbCurrent = startIdx || 0;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function renderLightbox() {
+  document.getElementById('lightbox-img').src = lbImages[lbCurrent];
+  document.getElementById('lightbox-counter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+  const showNav = lbImages.length > 1;
+  document.getElementById('lb-prev').style.display = showNav ? '' : 'none';
+  document.getElementById('lb-next').style.display = showNav ? '' : 'none';
+  const dotsWrap = document.getElementById('lightbox-dots');
+  dotsWrap.innerHTML = '';
+  lbImages.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'lightbox-dot' + (i === lbCurrent ? ' active' : '');
+    dot.addEventListener('click', e => { e.stopPropagation(); lbCurrent = i; renderLightbox(); });
+    dotsWrap.appendChild(dot);
+  });
+}
+function lbNav(dir) { lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length; renderLightbox(); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLightbox(); });
+document.getElementById('lightbox-img').addEventListener('click', e => e.stopPropagation());
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
+
+initCarousel('card-ecos', 'dots-ecos', [
+  'pictures/Eco Anatomico1.jpeg','pictures/Eco Anatomico2.jpeg','pictures/Eco Anatomico3.jpeg',
+  'pictures/Eco Anatomico4.jpeg','pictures/Eco Anatomico5.jpeg','pictures/Eco Genetico1.jpeg',
+  'pictures/Eco Genetico2.jpeg','pictures/Eco Genetico3.jpeg','pictures/Eco Genetico4.jpeg'
+]);
+initCarousel('card-parto', 'dots-parto', [
+  'pictures/parto1.jpeg','pictures/parto2.jpeg','pictures/parto3.jpeg','pictures/parto4.jpeg'
+]);
+</script>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+</script>
