@@ -136,7 +136,7 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <li><a href="acerca.html">Acerca</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
-    <button class="nav-cta" onclick="window.open('https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">Agendar cita</button>
+    <button class="nav-cta" data-cal-link="albert-resendiz-mbxxjg" data-cal-namespace="citas" data-cal-config='{"layout":"month_view","theme":"light"}'>Agendar cita</button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -259,3 +259,12 @@ const statsObserver = new IntersectionObserver((entries) => {
 const statsEl = document.querySelector('.hero-stats');
 if (statsEl) statsObserver.observe(statsEl);
 </script>
+
+<!-- Cal floating-popup embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "citas", {origin:"https://app.cal.com"});
+  Cal.ns["citas"]("floatingButton", {"calLink":"albert-resendiz-mbxxjg","buttonText":"Agenda tu cita","config":{"layout":"month_view","theme":"light"}});
+  Cal.ns["citas"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#c2185b"},"dark":{"cal-brand":"#c2185b"}},"hideEventTypeDetails":false});
+</script>
+<!-- Cal floating-popup embed code ends -->
