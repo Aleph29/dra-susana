@@ -153,8 +153,8 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <div class="contact-icon ci-mail">✉️</div>
       <div><span class="contact-label">Correo electrónico</span><span class="contact-value">susana.rodriguez@udem.edu</span></div>
     </a>
-    <button class="whatsapp-btn" onclick="window.open('https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank')">
-      <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Agendar por WhatsApp
+    <button class="whatsapp-btn" style="background:var(--pink)" data-cal-link="albert-resendiz-mbxxjg" data-cal-namespace="citas" data-cal-config='{"layout":"month_view","theme":"light"}'>
+      Agenda tu cita
     </button>
   </div>
 </section>
@@ -204,7 +204,6 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
   Cal("init", "citas", {origin:"https://app.cal.com"});
   Cal.config = Cal.config || {};
   Cal.config.forwardQueryParams = true;
-  Cal.ns["citas"]("floatingButton", {"calLink":"albert-resendiz-mbxxjg","buttonText":"Agenda tu cita","config":{"layout":"month_view","theme":"light"}});
-  Cal.ns["citas"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#c2185b"},"dark":{"cal-brand":"#c2185b"}},"hideEventTypeDetails":false});
+Cal.ns["citas"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#c2185b"},"dark":{"cal-brand":"#c2185b"}},"hideEventTypeDetails":false});
 </script>
 <!-- Cal floating-popup embed code ends -->
