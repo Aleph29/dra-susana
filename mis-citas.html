@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis citas — Dra. Susana Rodríguez Coutiño</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%23fdeef4'/><path d='M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z' fill='%23e87aa0' opacity='0.9'/><circle cx='20' cy='18' r='2.8' fill='white'/><path d='M18 21 Q20 24 22 21' stroke='white' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
+--teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
+--navy:#0f2a3d;--cream:#faf8f9;--ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:0.8rem}
+.nav-logo a{display:flex;align-items:center;gap:0.8rem;text-decoration:none}
+.nav-logo-icon{width:40px;height:40px;flex-shrink:0}
+.nav-brand{display:flex;flex-direction:column}
+.nav-name{font-size:0.92rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-name span{color:var(--pink)}
+.nav-title{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-top:0.1rem}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;gap:1.8rem;list-style:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-links a:hover,.nav-links a.active{color:var(--pink)}
+.nav-cta{background:var(--pink);color:white;border:none;padding:0.6rem 1.5rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:var(--pink-dark)}
+.hamburger{display:none}
+footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32);flex-wrap:wrap;gap:1rem}
+.footer-brand{font-size:0.88rem;font-weight:600;color:white}
+.footer-brand span{color:var(--pink)}
+.footer-center{text-align:center;line-height:1.7}
+
+.wrap{max-width:680px;margin:0 auto;padding:3rem 1.5rem 5rem}
+.page-title{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:300;text-align:center;margin-bottom:0.6rem}
+.page-title em{color:var(--pink);font-style:italic}
+.page-sub{font-size:0.9rem;color:var(--muted);text-align:center;max-width:440px;margin:0 auto 2.4rem;line-height:1.7}
+
+.card{background:white;border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:1.4rem}
+label{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;margin-top:1rem}
+label:first-child{margin-top:0}
+input[type=email],input[type=password],input[type=date]{width:100%;padding:0.75rem 0.9rem;border:1px solid var(--border);border-radius:6px;font-family:var(--sans);font-size:0.9rem;background:var(--cream)}
+input:focus{outline:none;border-color:var(--pink)}
+.btn-primary{background:var(--pink);color:white;border:none;padding:0.85rem 1.6rem;font-family:var(--sans);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:6px;width:100%;margin-top:1.2rem}
+.btn-primary:hover{background:var(--pink-dark)}
+.btn-secondary{background:transparent;color:var(--muted);border:1px solid var(--border);padding:0.6rem 1rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:6px}
+.btn-secondary:hover{border-color:var(--pink-dark);color:var(--pink-dark)}
+.btn-danger{background:transparent;color:var(--pink-dark);border:1px solid #f4c8d3;padding:0.6rem 1rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:6px}
+.btn-danger:hover{background:#fdeef0}
+.msg{padding:0.8rem 1rem;border-radius:6px;font-size:0.85rem;margin-top:1rem}
+.msg.error{background:#fdeef0;color:#b5476e;border:1px solid #f4c8d3}
+.msg.success{background:var(--teal-light);color:var(--teal-dark);border:1px solid #bfe8ee}
+.hidden{display:none !important}
+
+.cita-item{border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.2rem;margin-bottom:0.9rem}
+.cita-fecha{font-family:var(--serif);font-size:1.15rem;color:var(--pink-dark);font-weight:600}
+.cita-detalle{font-size:0.82rem;color:var(--muted);margin-top:0.2rem}
+.cita-estado{display:inline-block;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.15rem 0.55rem;border-radius:100px;margin-left:0.5rem}
+.estado-confirmada{background:var(--teal-light);color:var(--teal-dark)}
+.estado-cancelada{background:#fdeef0;color:var(--pink-dark)}
+.cita-acciones{display:flex;gap:0.6rem;margin-top:0.9rem;flex-wrap:wrap}
+.reagendar-box{margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--border)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:0.5rem;margin-top:0.8rem}
+.slot-btn{padding:0.55rem 0.3rem;border:1px solid var(--border);border-radius:6px;background:white;font-family:var(--sans);font-size:0.78rem;cursor:pointer;text-align:center}
+.slot-btn.selected{background:var(--pink);color:white;border-color:var(--pink)}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--pink);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:0.4rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seccion-titulo{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin:1.6rem 0 0.8rem}
+</style>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" fill="#fdeef4" stroke="#e87aa0" stroke-width="1.5"/>
+        <path d="M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z" fill="#e87aa0" opacity="0.8"/>
+        <circle cx="20" cy="18" r="2.8" fill="white"/>
+        <path d="M18 21 Q20 24 22 21" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-brand">
+        <span class="nav-name">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+        <span class="nav-title">Ginecología · Obstetricia · Medicina Materno Fetal</span>
+      </div>
+    </a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="mis-citas.html" class="active">Mis citas</a></li>
+    </ul>
+    <a class="nav-cta" href="agendar.html">Agendar cita</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1 class="page-title">Mis <em>citas</em></h1>
+  <p class="page-sub">Inicia sesión con la cuenta que usaste al agendar para ver, reagendar o cancelar tus citas.</p>
+
+  <div class="card" id="cardLogin">
+    <label>Correo</label>
+    <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
+    <label>Contraseña</label>
+    <input type="password" id="loginPass" placeholder="••••••••">
+    <button class="btn-primary" id="btnLogin">Iniciar sesión</button>
+    <div id="loginMsg"></div>
+  </div>
+
+  <div class="card hidden" id="cardCitas">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span id="saludoUsuario" style="font-size:0.85rem;color:var(--muted)"></span>
+      <button class="btn-secondary" id="btnLogout">Cerrar sesión</button>
+    </div>
+
+    <div id="listaProximas"></div>
+    <div id="listaPasadas"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+  <div class="footer-center">Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey, N.L. · © 2026</div>
+</footer>
+
+<script type="module">
+import { auth, functions, httpsCallable, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "./js/firebase-init.js";
+
+const $ = (id) => document.getElementById(id);
+function mostrarMsg(el, texto, tipo) { el.innerHTML = texto ? `<div class="msg ${tipo}">${texto}</div>` : ""; }
+
+$("btnLogin").addEventListener("click", async () => {
+  try {
+    await signInWithEmailAndPassword(auth, $("loginEmail").value.trim(), $("loginPass").value);
+  } catch (err) {
+    mostrarMsg($("loginMsg"), "No pudimos iniciar sesión: " + err.message, "error");
+  }
+});
+
+$("btnLogout").addEventListener("click", () => signOut(auth));
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    $("cardLogin").classList.remove("hidden");
+    $("cardCitas").classList.add("hidden");
+    return;
+  }
+  $("cardLogin").classList.add("hidden");
+  $("cardCitas").classList.remove("hidden");
+  $("saludoUsuario").textContent = `Sesión iniciada como ${user.email}`;
+  await cargarCitas();
+});
+
+async function cargarCitas() {
+  $("listaProximas").innerHTML = `<p class="seccion-titulo">Cargando tus citas...</p>`;
+  $("listaPasadas").innerHTML = "";
+  try {
+    const misCitas = httpsCallable(functions, "misCitas");
+    const { data } = await misCitas();
+    renderLista("listaProximas", "Próximas citas", data.proximas, true);
+    renderLista("listaPasadas", "Historial", data.pasadas, false);
+  } catch (err) {
+    $("listaProximas").innerHTML = `<div class="msg error">No pudimos cargar tus citas: ${err.message}</div>`;
+  }
+}
+
+function renderLista(contenedorId, titulo, citas, permitirAcciones) {
+  const cont = $(contenedorId);
+  cont.innerHTML = `<div class="seccion-titulo">${titulo}</div>`;
+  if (!citas.length) {
+    cont.innerHTML += `<p style="font-size:0.85rem;color:var(--muted)">Sin citas ${permitirAcciones ? "próximas" : "anteriores"}.</p>`;
+    return;
+  }
+  citas.forEach((cita) => cont.appendChild(renderCita(cita, permitirAcciones)));
+}
+
+function renderCita(cita, permitirAcciones) {
+  const item = document.createElement("div");
+  item.className = "cita-item";
+  const estadoClase = cita.estado === "confirmada" ? "estado-confirmada" : "estado-cancelada";
+  item.innerHTML = `
+    <div class="cita-fecha">${cita.fecha} — ${cita.hora} hrs <span class="cita-estado ${estadoClase}">${cita.estado}</span></div>
+    <div class="cita-detalle">${cita.motivo ? "Motivo: " + cita.motivo : "Sin motivo especificado"}</div>
+    ${permitirAcciones ? `<div class="cita-acciones">
+      <button class="btn-secondary btn-reagendar">Reagendar</button>
+      <button class="btn-danger btn-cancelar">Cancelar</button>
+    </div>
+    <div class="reagendar-box hidden"></div>` : ""}
+  `;
+
+  if (permitirAcciones) {
+    item.querySelector(".btn-cancelar").addEventListener("click", async () => {
+      if (!confirm("¿Seguro que quieres cancelar esta cita?")) return;
+      try {
+        const cancelarCita = httpsCallable(functions, "cancelarCita");
+        await cancelarCita({ citaId: cita.id });
+        await cargarCitas();
+      } catch (err) {
+        alert("No se pudo cancelar: " + err.message);
+      }
+    });
+
+    item.querySelector(".btn-reagendar").addEventListener("click", () => {
+      const box = item.querySelector(".reagendar-box");
+      box.classList.toggle("hidden");
+      if (box.dataset.cargado) return;
+      box.dataset.cargado = "1";
+      box.innerHTML = `
+        <label>Nueva fecha</label>
+        <input type="date" class="fecha-reagendar">
+        <div class="slots-reagendar"><p style="font-size:0.82rem;color:var(--muted)">Elige una fecha para ver horarios.</p></div>
+        <button class="btn-primary btn-confirmar-reagendar" disabled style="margin-top:0.8rem">Selecciona un horario primero</button>
+        <div class="msg-reagendar"></div>
+      `;
+      const inputFecha = box.querySelector(".fecha-reagendar");
+      inputFecha.min = new Date().toISOString().slice(0, 10);
+      let horaElegida = null;
+      const btnConfirmar = box.querySelector(".btn-confirmar-reagendar");
+
+      inputFecha.addEventListener("change", async () => {
+        horaElegida = null;
+        btnConfirmar.disabled = true;
+        btnConfirmar.textContent = "Selecciona un horario primero";
+        const slotsBox = box.querySelector(".slots-reagendar");
+        slotsBox.innerHTML = `<p><span class="spinner"></span>Buscando horarios...</p>`;
+        try {
+          const obtenerDisponibilidad = httpsCallable(functions, "obtenerDisponibilidad");
+          const { data } = await obtenerDisponibilidad({ fecha: inputFecha.value });
+          if (!data.horarios.length) {
+            slotsBox.innerHTML = `<p style="font-size:0.82rem;color:var(--muted)">No hay horarios ese día.</p>`;
+            return;
+          }
+          const grid = document.createElement("div");
+          grid.className = "slots";
+          data.horarios.forEach((hora) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "slot-btn";
+            b.textContent = hora;
+            b.addEventListener("click", () => {
+              grid.querySelectorAll(".slot-btn").forEach((x) => x.classList.remove("selected"));
+              b.classList.add("selected");
+              horaElegida = hora;
+              btnConfirmar.disabled = false;
+              btnConfirmar.textContent = "Confirmar nuevo horario";
+            });
+            grid.appendChild(b);
+          });
+          slotsBox.innerHTML = "";
+          slotsBox.appendChild(grid);
+        } catch (err) {
+          slotsBox.innerHTML = `<p style="font-size:0.82rem;color:var(--pink-dark)">${err.message}</p>`;
+        }
+      });
+
+      btnConfirmar.addEventListener("click", async () => {
+        if (!inputFecha.value || !horaElegida) return;
+        try {
+          const reagendarCita = httpsCallable(functions, "reagendarCita");
+          await reagendarCita({ citaId: cita.id, nuevaFecha: inputFecha.value, nuevaHora: horaElegida });
+          await cargarCitas();
+        } catch (err) {
+          box.querySelector(".msg-reagendar").innerHTML = `<div class="msg error">${err.message}</div>`;
+        }
+      });
+    });
+  }
+
+  return item;
+}
+</script>

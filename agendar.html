@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar cita — Dra. Susana Rodríguez Coutiño</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%23fdeef4'/><path d='M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z' fill='%23e87aa0' opacity='0.9'/><circle cx='20' cy='18' r='2.8' fill='white'/><path d='M18 21 Q20 24 22 21' stroke='white' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--pink:#e87aa0;--pink-light:#fdeef4;--pink-dark:#b5476e;
+--teal:#3ab5c6;--teal-light:#e6f7fa;--teal-dark:#1a8a9a;
+--navy:#0f2a3d;--navy2:#152f45;
+--cream:#faf8f9;--cream2:#f5f0f3;
+--ink:#1e1e2e;--muted:#6b6478;--border:#e8dde5;
+--fb:#1877f2;--wa:#25d366;--ig:#e1306c;--tt:#000000;
+--serif:'Cormorant Garamond',Georgia,serif;
+--sans:'Jost',sans-serif;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:white;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:0.8rem}
+.nav-logo a{display:flex;align-items:center;gap:0.8rem;text-decoration:none}
+.nav-logo-icon{width:40px;height:40px;flex-shrink:0}
+.nav-brand{display:flex;flex-direction:column}
+.nav-name{font-size:0.92rem;font-weight:600;color:var(--ink);line-height:1.2}
+.nav-name span{color:var(--pink)}
+.nav-title{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-top:0.1rem}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;gap:1.8rem;list-style:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+.nav-links a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--pink)}
+.nav-cta{background:var(--pink);color:white;border:none;padding:0.6rem 1.5rem;font-family:var(--sans);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:background 0.2s;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:var(--pink-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;top:65px;background:white;z-index:99;padding:2rem;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.1rem;font-weight:500;color:var(--ink);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);letter-spacing:0.06em;text-transform:uppercase}
+footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.32);flex-wrap:wrap;gap:1rem}
+.footer-brand{font-size:0.88rem;font-weight:600;color:white}
+.footer-brand span{color:var(--pink)}
+.footer-center{text-align:center;line-height:1.7}
+
+/* ---- Página de agendar cita ---- */
+.wrap{max-width:640px;margin:0 auto;padding:3rem 1.5rem 5rem}
+.page-eyebrow{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;text-align:center}
+.page-title{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:300;text-align:center;margin-bottom:0.6rem}
+.page-title em{color:var(--pink);font-style:italic}
+.page-sub{font-size:0.9rem;color:var(--muted);text-align:center;max-width:440px;margin:0 auto 2.4rem;line-height:1.7}
+
+.card{background:white;border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:1.4rem}
+.card h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-bottom:1rem;color:var(--pink-dark)}
+label{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;margin-top:1rem}
+label:first-child{margin-top:0}
+input[type=date],input[type=text],input[type=email],input[type=tel],input[type=password],textarea{
+  width:100%;padding:0.75rem 0.9rem;border:1px solid var(--border);border-radius:6px;font-family:var(--sans);font-size:0.9rem;color:var(--ink);background:var(--cream)
+}
+input:focus,textarea:focus{outline:none;border-color:var(--pink)}
+textarea{resize:vertical;min-height:70px}
+
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:0.6rem;margin-top:1rem}
+.slot-btn{padding:0.65rem 0.4rem;border:1px solid var(--border);border-radius:6px;background:white;font-family:var(--sans);font-size:0.82rem;cursor:pointer;transition:all .15s;text-align:center}
+.slot-btn:hover{border-color:var(--pink)}
+.slot-btn.selected{background:var(--pink);color:white;border-color:var(--pink)}
+.slot-empty{font-size:0.85rem;color:var(--muted);padding:1rem 0}
+
+.btn-primary{background:var(--pink);color:white;border:none;padding:0.85rem 1.6rem;font-family:var(--sans);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:6px;transition:background 0.2s;width:100%;margin-top:1.4rem}
+.btn-primary:hover{background:var(--pink-dark)}
+.btn-primary:disabled{background:#d8c3ce;cursor:not-allowed}
+.btn-secondary{background:transparent;color:var(--muted);border:1px solid var(--border);padding:0.7rem 1.2rem;font-family:var(--sans);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;border-radius:6px;width:100%;margin-top:0.7rem}
+.btn-secondary:hover{border-color:var(--pink-dark);color:var(--pink-dark)}
+.btn-link{background:none;border:none;color:var(--teal-dark);font-size:0.8rem;cursor:pointer;text-decoration:underline;padding:0}
+
+.msg{padding:0.8rem 1rem;border-radius:6px;font-size:0.85rem;margin-top:1rem}
+.msg.error{background:#fdeef0;color:#b5476e;border:1px solid #f4c8d3}
+.msg.success{background:var(--teal-light);color:var(--teal-dark);border:1px solid #bfe8ee}
+.hidden{display:none !important}
+
+.login-toggle{text-align:center;font-size:0.82rem;color:var(--muted);margin-bottom:1rem}
+.confirm-box{text-align:center;padding:1rem 0}
+.confirm-box .big-date{font-family:var(--serif);font-size:1.5rem;color:var(--pink-dark);margin:0.8rem 0}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--pink);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:0.4rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:640px){
+  nav{padding:1rem 1.2rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  footer{flex-direction:column;align-items:center;text-align:center;padding:1.5rem}
+}
+</style>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" fill="#fdeef4" stroke="#e87aa0" stroke-width="1.5"/>
+        <path d="M20 12 C16 12 13 15 13 19 C13 25 20 29 20 29 C20 29 27 25 27 19 C27 15 24 12 20 12Z" fill="#e87aa0" opacity="0.8"/>
+        <circle cx="20" cy="18" r="2.8" fill="white"/>
+        <path d="M18 21 Q20 24 22 21" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-brand">
+        <span class="nav-name">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+        <span class="nav-title">Ginecología · Obstetricia · Medicina Materno Fetal</span>
+      </div>
+    </a>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="mis-citas.html">Mis citas</a></li>
+    </ul>
+    <a class="nav-cta active" href="agendar.html">Agendar cita</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="acerca.html">Acerca</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="mis-citas.html">Mis citas</a>
+</div>
+
+<div class="wrap">
+  <p class="page-eyebrow">Ginecología · Obstetricia</p>
+  <h1 class="page-title" id="pageTitle">Agenda tu <em>cita</em></h1>
+  <p class="page-sub" id="pageSub">Elige el día y horario que mejor te acomode. Recibirás la confirmación por correo, con un enlace para reagendar o cancelar si lo necesitas.</p>
+
+  <!-- Modo reagendar: se muestra cuando la URL trae ?token=... -->
+  <div class="card hidden" id="cardReagendarInfo">
+    <h3>Tu cita actual</h3>
+    <p id="citaActualTexto" style="font-size:0.9rem;color:var(--muted)"></p>
+  </div>
+
+  <!-- Login opcional -->
+  <div class="card" id="cardLogin">
+    <p class="login-toggle" id="loginStatus">
+      ¿Ya tienes cuenta? <button class="btn-link" id="btnMostrarLogin">Inicia sesión</button> para que tus citas queden guardadas en <a href="mis-citas.html" style="color:var(--teal-dark)">Mis citas</a>.
+    </p>
+    <div id="loginForm" class="hidden">
+      <label>Correo</label>
+      <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="••••••••">
+      <button class="btn-primary" id="btnLogin" style="margin-top:1rem">Iniciar sesión</button>
+      <button class="btn-secondary" id="btnRegistro">Crear cuenta con estos datos</button>
+      <div id="loginMsg"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1. Elige fecha y hora</h3>
+    <label>Fecha</label>
+    <input type="date" id="fecha">
+    <div id="slotsBox">
+      <p class="slot-empty">Elige una fecha para ver horarios disponibles.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 id="formTitle">2. Tus datos</h3>
+    <label>Nombre completo</label>
+    <input type="text" id="pacienteNombre" placeholder="Nombre y apellidos">
+    <label>Correo</label>
+    <input type="email" id="pacienteEmail" placeholder="tucorreo@ejemplo.com">
+    <label>Teléfono</label>
+    <input type="tel" id="pacienteTelefono" placeholder="81 1234 5678">
+    <label>Motivo de la consulta (opcional)</label>
+    <textarea id="motivo" placeholder="Ej. revisión general, control de embarazo, primera consulta..."></textarea>
+    <button class="btn-primary" id="btnAgendar" disabled>Selecciona un horario primero</button>
+    <button class="btn-secondary hidden" id="btnCancelarCita">Cancelar esta cita</button>
+    <div id="formMsg"></div>
+  </div>
+
+  <div class="card hidden" id="cardConfirmacion">
+    <div class="confirm-box">
+      <h3 id="confirmTitulo">¡Listo!</h3>
+      <p class="big-date" id="confirmFechaHora"></p>
+      <p style="font-size:0.85rem;color:var(--muted)" id="confirmDetalle"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Dra. Susana <span>Rodríguez</span> Coutiño</span>
+  <div class="footer-center">
+    Ginecología · Obstetricia · Medicina Materno Fetal · Monterrey, N.L.<br>
+    Ced. Prof. 5328701 · Ced. Esp. 8091407 · Ced. Sub. 10980219 · © 2026
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+
+<script type="module">
+import { auth, functions, httpsCallable, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, db, doc, getDoc } from "./js/firebase-init.js";
+
+const params = new URLSearchParams(window.location.search);
+const token = params.get("token");
+const modoReagendar = Boolean(token);
+
+let horarioSeleccionado = null;
+let usuarioActual = null;
+let citaActual = null; // cuando modoReagendar
+
+const $ = (id) => document.getElementById(id);
+
+function mostrarMsg(el, texto, tipo) {
+  el.innerHTML = texto ? `<div class="msg ${tipo}">${texto}</div>` : "";
+}
+
+// ---------- Modo reagendar ----------
+async function inicializarModoReagendar() {
+  $("pageTitle").innerHTML = "Reagendar <em>cita</em>";
+  $("pageSub").textContent = "Elige la nueva fecha y hora. También puedes cancelar tu cita desde aquí.";
+  $("formTitle").textContent = "Confirmar cambio";
+  $("cardLogin").classList.add("hidden");
+  $("btnCancelarCita").classList.remove("hidden");
+  $("btnAgendar").textContent = "Selecciona un horario primero";
+
+  try {
+    const obtenerCitaPorToken = httpsCallable(functions, "obtenerCitaPorToken");
+    const { data } = await obtenerCitaPorToken({ token });
+    citaActual = data;
+    $("cardReagendarInfo").classList.remove("hidden");
+    $("citaActualTexto").textContent = `${data.pacienteNombre} — ${data.fecha} a las ${data.hora} hrs.`;
+    $("pacienteNombre").closest(".card").classList.add("hidden"); // no repetimos datos del paciente
+  } catch (err) {
+    $("cardReagendarInfo").classList.remove("hidden");
+    $("citaActualTexto").textContent = "No pudimos encontrar esta cita. El enlace puede haber expirado o la cita ya fue cancelada.";
+    document.querySelectorAll(".card").forEach((c, i) => { if (i > 0) c.classList.add("hidden"); });
+  }
+}
+
+$("btnCancelarCita").addEventListener("click", async () => {
+  if (!confirm("¿Seguro que quieres cancelar tu cita?")) return;
+  try {
+    const cancelarCita = httpsCallable(functions, "cancelarCita");
+    await cancelarCita({ token });
+    $("cardConfirmacion").classList.remove("hidden");
+    $("confirmTitulo").textContent = "Tu cita fue cancelada";
+    $("confirmFechaHora").textContent = "";
+    $("confirmDetalle").textContent = "Te enviamos un correo de confirmación. Si quieres agendar de nuevo, visita esta página cuando gustes.";
+    document.querySelectorAll(".card:not(#cardConfirmacion)").forEach((c) => c.classList.add("hidden"));
+  } catch (err) {
+    mostrarMsg($("formMsg"), err.message, "error");
+  }
+});
+
+// ---------- Login opcional (sólo modo agendar nuevo) ----------
+$("btnMostrarLogin").addEventListener("click", () => {
+  $("loginForm").classList.remove("hidden");
+  $("btnMostrarLogin").classList.add("hidden");
+});
+$("btnLogin").addEventListener("click", async () => {
+  try {
+    await signInWithEmailAndPassword(auth, $("loginEmail").value.trim(), $("loginPass").value);
+  } catch (err) {
+    mostrarMsg($("loginMsg"), "No pudimos iniciar sesión: " + err.message, "error");
+  }
+});
+$("btnRegistro").addEventListener("click", async () => {
+  try {
+    await createUserWithEmailAndPassword(auth, $("loginEmail").value.trim(), $("loginPass").value);
+  } catch (err) {
+    mostrarMsg($("loginMsg"), "No pudimos crear tu cuenta: " + err.message, "error");
+  }
+});
+
+if (!modoReagendar) {
+  onAuthStateChanged(auth, async (user) => {
+    usuarioActual = user;
+    if (user) {
+      $("loginStatus").innerHTML = `Sesión iniciada como <strong>${user.email}</strong>. Tus citas se guardarán en tu cuenta.`;
+      $("loginForm").classList.add("hidden");
+      try {
+        const perfil = await getDoc(doc(db, "pacientes", user.uid));
+        if (perfil.exists()) {
+          const d = perfil.data();
+          if (d.nombre) $("pacienteNombre").value = d.nombre;
+          if (d.telefono) $("pacienteTelefono").value = d.telefono;
+        }
+        $("pacienteEmail").value = user.email;
+      } catch (e) { /* no pasa nada si no existe perfil aún */ }
+    }
+  });
+}
+
+// ---------- Calendario de disponibilidad ----------
+const inputFecha = $("fecha");
+const hoy = new Date();
+inputFecha.min = hoy.toISOString().slice(0, 10);
+
+inputFecha.addEventListener("change", cargarDisponibilidad);
+
+async function cargarDisponibilidad() {
+  const fecha = inputFecha.value;
+  horarioSeleccionado = null;
+  actualizarBotonPrincipal();
+  const box = $("slotsBox");
+  box.innerHTML = `<p class="slot-empty"><span class="spinner"></span>Buscando horarios disponibles...</p>`;
+  if (!fecha) { box.innerHTML = `<p class="slot-empty">Elige una fecha para ver horarios disponibles.</p>`; return; }
+
+  try {
+    const obtenerDisponibilidad = httpsCallable(functions, "obtenerDisponibilidad");
+    const { data } = await obtenerDisponibilidad({ fecha });
+    if (!data.horarios.length) {
+      box.innerHTML = `<p class="slot-empty">No hay horarios disponibles ese día. Prueba otra fecha.</p>`;
+      return;
+    }
+    box.innerHTML = "";
+    const grid = document.createElement("div");
+    grid.className = "slots";
+    data.horarios.forEach((hora) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "slot-btn";
+      btn.textContent = hora;
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".slot-btn").forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        horarioSeleccionado = hora;
+        actualizarBotonPrincipal();
+      });
+      grid.appendChild(btn);
+    });
+    box.appendChild(grid);
+  } catch (err) {
+    box.innerHTML = `<p class="slot-empty">No pudimos cargar la disponibilidad: ${err.message}</p>`;
+  }
+}
+
+function actualizarBotonPrincipal() {
+  const btn = $("btnAgendar");
+  if (!horarioSeleccionado) {
+    btn.disabled = true;
+    btn.textContent = "Selecciona un horario primero";
+    return;
+  }
+  btn.disabled = false;
+  btn.textContent = modoReagendar ? "Confirmar nuevo horario" : "Agendar mi cita";
+}
+
+// ---------- Enviar formulario ----------
+$("btnAgendar").addEventListener("click", async () => {
+  mostrarMsg($("formMsg"), "", "");
+  const fecha = inputFecha.value;
+  if (!fecha || !horarioSeleccionado) return;
+
+  $("btnAgendar").disabled = true;
+  $("btnAgendar").innerHTML = `<span class="spinner"></span>Procesando...`;
+
+  try {
+    if (modoReagendar) {
+      const reagendarCita = httpsCallable(functions, "reagendarCita");
+      const { data } = await reagendarCita({ token, nuevaFecha: fecha, nuevaHora: horarioSeleccionado });
+      mostrarConfirmacion("Tu cita fue reagendada", data.fecha, data.hora, "Te enviamos la confirmación por correo.");
+    } else {
+      const nombre = $("pacienteNombre").value.trim();
+      const email = $("pacienteEmail").value.trim();
+      const telefono = $("pacienteTelefono").value.trim();
+      if (!nombre || !email || !telefono) {
+        mostrarMsg($("formMsg"), "Nombre, correo y teléfono son obligatorios.", "error");
+        $("btnAgendar").disabled = false;
+        actualizarBotonPrincipal();
+        return;
+      }
+      const crearCita = httpsCallable(functions, "crearCita");
+      const { data } = await crearCita({
+        fecha,
+        hora: horarioSeleccionado,
+        pacienteNombre: nombre,
+        pacienteEmail: email,
+        pacienteTelefono: telefono,
+        motivo: $("motivo").value.trim(),
+      });
+      mostrarConfirmacion(
+        "¡Tu cita quedó agendada!",
+        data.fecha,
+        data.hora,
+        usuarioActual
+          ? "Te enviamos la confirmación por correo. También puedes verla en Mis citas."
+          : "Te enviamos la confirmación por correo, con un enlace para reagendar o cancelar."
+      );
+    }
+  } catch (err) {
+    mostrarMsg($("formMsg"), err.message, "error");
+    $("btnAgendar").disabled = false;
+    actualizarBotonPrincipal();
+  }
+});
+
+function mostrarConfirmacion(titulo, fecha, hora, detalle) {
+  document.querySelectorAll(".card:not(#cardConfirmacion)").forEach((c) => c.classList.add("hidden"));
+  $("cardConfirmacion").classList.remove("hidden");
+  $("confirmTitulo").textContent = titulo;
+  $("confirmFechaHora").textContent = `${fecha} — ${hora} hrs`;
+  $("confirmDetalle").textContent = detalle;
+}
+
+if (modoReagendar) inicializarModoReagendar();
+</script>

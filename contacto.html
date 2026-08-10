@@ -115,8 +115,9 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <li><a href="servicios.html">Servicios</a></li>
       <li><a href="acerca.html">Acerca</a></li>
       <li><a href="contacto.html" class="active">Contacto</a></li>
+      <li><a href="mis-citas.html">Mis citas</a></li>
     </ul>
-    <button class="nav-cta" data-cal-link="albert-resendiz-mbxxjg" data-cal-namespace="citas" data-cal-config='{"layout":"month_view","theme":"light"}'>Agendar cita</button>
+    <a class="nav-cta" href="agendar.html">Agendar cita</a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -128,7 +129,8 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
   <a href="servicios.html" onclick="closeMenu()">Servicios</a>
   <a href="acerca.html" onclick="closeMenu()">Acerca</a>
   <a href="contacto.html" onclick="closeMenu()">Contacto</a>
-  <button class="mob-cta" onclick="window.open('https://wa.me/528120133115?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consulta','_blank');closeMenu()">Agendar cita por WhatsApp</button>
+  <a href="mis-citas.html" onclick="closeMenu()">Mis citas</a>
+  <a class="mob-cta" href="agendar.html" style="display:block;text-align:center;text-decoration:none">Agendar cita</a>
 </div>
 
 <section class="appointment">
@@ -153,9 +155,9 @@ footer{background:var(--navy);padding:1.8rem 3rem;display:flex;justify-content:s
       <div class="contact-icon ci-mail">✉️</div>
       <div><span class="contact-label">Correo electrónico</span><span class="contact-value">susana.rodriguez@udem.edu</span></div>
     </a>
-    <button class="whatsapp-btn" style="background:var(--pink)" data-cal-link="albert-resendiz-mbxxjg" data-cal-namespace="citas" data-cal-config='{"layout":"month_view","theme":"light"}'>
+    <a class="whatsapp-btn" style="background:var(--pink);text-decoration:none;display:inline-block" href="agendar.html">
       Agenda tu cita
-    </button>
+    </a>
   </div>
 </section>
 
@@ -197,13 +199,3 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
 </script>
-
-<!-- Cal floating-popup embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "citas", {origin:"https://app.cal.com"});
-  Cal.config = Cal.config || {};
-  Cal.config.forwardQueryParams = true;
-Cal.ns["citas"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#c2185b"},"dark":{"cal-brand":"#c2185b"}},"hideEventTypeDetails":false});
-</script>
-<!-- Cal floating-popup embed code ends -->
