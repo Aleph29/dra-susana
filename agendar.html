@@ -170,6 +170,7 @@ textarea{resize:vertical;min-height:70px}
 
   <div class="card">
     <h3 id="formTitle">2. Tus datos</h3>
+    <div id="datosPacienteFields">
     <label>Nombre completo</label>
     <input type="text" id="pacienteNombre" placeholder="Nombre y apellidos">
     <label>Correo</label>
@@ -178,6 +179,7 @@ textarea{resize:vertical;min-height:70px}
     <input type="tel" id="pacienteTelefono" placeholder="81 1234 5678">
     <label>Motivo de la consulta (opcional)</label>
     <textarea id="motivo" placeholder="Ej. revisión general, control de embarazo, primera consulta..."></textarea>
+    </div>
     <button class="btn-primary" id="btnAgendar" disabled>Selecciona un horario primero</button>
     <button class="btn-secondary hidden" id="btnCancelarCita">Cancelar esta cita</button>
     <div id="formMsg"></div>
@@ -239,7 +241,7 @@ async function inicializarModoReagendar() {
     citaActual = data;
     $("cardReagendarInfo").classList.remove("hidden");
     $("citaActualTexto").textContent = `${data.pacienteNombre} — ${data.fecha} a las ${data.hora} hrs.`;
-    $("pacienteNombre").closest(".card").classList.add("hidden"); // no repetimos datos del paciente
+    $("datosPacienteFields").classList.add("hidden"); // no repetimos datos del paciente, pero dejamos visible el botón de confirmar
   } catch (err) {
     $("cardReagendarInfo").classList.remove("hidden");
     $("citaActualTexto").textContent = "No pudimos encontrar esta cita. El enlace puede haber expirado o la cita ya fue cancelada.";
