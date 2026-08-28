@@ -6,6 +6,10 @@
 // "SDK setup and configuration" → Config). Ver GUIA_SETUP_FIREBASE_CITAS.md, Paso 3.
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  initializeAppCheck,
+  ReCaptchaEnterpriseProvider,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 import {
@@ -26,6 +30,18 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+
+// App Check: verifica que las llamadas a nuestras Cloud Functions vengan de
+// esta página real (vía reCAPTCHA Enterprise, invisible para el paciente) y
+// no de un script externo. La Site Key es la del key de tipo "Web" creado en
+// Google Cloud → Security → Fraud Defense (reCAPTCHA Enterprise), registrado
+// también en Firebase Console → App Check con el proveedor "reCAPTCHA
+// Enterprise" (ver guía de seguridad).
+initializeAppCheck(app, {
+  provider: new ReCaptchaEnterpriseProvider("6LchRZwtAAAAAFIaImMw2TYl5oE0VcVcwfJXj7t9"),
+  isTokenAutoRefreshEnabled: true,
+});
+
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const functions = getFunctions(app, "us-central1");
